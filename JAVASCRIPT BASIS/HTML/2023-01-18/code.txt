@@ -1,0 +1,16 @@
+A coding story
+We use HTML (Hypertext Markup Language) to structure our web documents.
+Some JavaScript
+<p>This is a paragraph</p>
+var para = document.querySelector('p');
+para.onclick = function() {
+  alert('Owww, stop poking me!');
+}
+In the above JavaScript example, para represents a variable that holds a paragraph element.
+A little tip
+Select all the text with Ctrl/Cmd + A.
+Did you know
+Have you ever heard of the ping-command in your terminal?
+$ ping mozilla.org
+PING mozilla.org (63.245.215.20): 56 data bytes
+64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms

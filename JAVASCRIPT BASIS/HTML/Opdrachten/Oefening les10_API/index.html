@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="get">
+        <input type="text" name="test" id="test" required><!--required bij zetten om invalid te kunnen toepassen-->
+        <input type="submit" value="Submit form">
+    </form>
+    <br>
+    <div id="result"></div>
+    <button onclick="getLocation()">GetLocation</button> <!--onclick gebruiken om de functie uit JS te halen en is ter vervanging als addEventListener-->
+    <button id="history">History</button>
+    <button id="url">Read URL</button>
+    <button id="form-button">Read Form</button>
+    
+    
+    <script src="api.js"></script>
+    
+</body>
+</html>
+

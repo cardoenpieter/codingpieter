@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
+html, body
+{
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header,
+footer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+header a, 
+nav#index a
+{
+  padding: 1rem;
+  border: 2px solid maroon;
+  border-radius: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: maroon;
+  transition: all 300ms ease-in-out;
+  text-align: center;
+}
+
+header a:hover, 
+header a:focus,
+nav#index a:hover,
+nav#index a:focus
+{
+  background-color: maroon;
+  color: antiquewhite;
+}
+
+nav#index
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* PSEUDO ELEMENT TEST */
+/* ------------------- */
+
+header a
+{
+  position: relative;
+}
+
+header a:hover
+{
+  box-shadow: 3px 3px 0 darkslategray;
+  text-shadow: 3px 3px 0 black;
+}
+
+header a::before
+{
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  background-color: rgba(0, 128, 0, 0.75);
+  width: 0;
+  height: 5px;
+  border-radius: 1rem;
+  transform-origin: right;
+  transition: all 300ms ease-in-out;
+}
+
+header a:hover::before
+{
+  width: 100%;
+  transform-origin: left;
+}
+
+
+main section p
+{
+  text-align: justify;
+}
+
+
+
+
+
+
+
+/* --- EIGEN CODE VANAF HIER ONDER --- */
+/* ----------------------------------- */
+
+main#nav1
+{
+  /*display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 1rem;*/
+}
+
+main#nav1 nav ul
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+main#nav1 nav ul li
+{
+  margin: 0.5rem 0;
+  min-width: 150px;
+}
+
+main#nav1 nav ul li a
+{
+  display: block;
+  text-transform: uppercase;
+  color: #cbd2e2;
+  padding: 0.25rem 1rem;
+  background-color: #3965CC;
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+}
+
+main#nav1 nav ul li a:hover,
+main#nav1 nav ul li a:focus
+{
+  background-color: #1e366e;
+  color: #e7e7e7;
+}
+
+/* ----------------------------------- */
+
+main#nav2 nav 
+{
+  background-color: maroon;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  margin: 1rem 0;
+}
+
+main#nav2 nav .navwrapper 
+{
+    height: 4rem;
+}
+
+main#nav2 nav .navwrapper section 
+{
+      padding: 1rem;
+      width:100%;
+}
+
+main#nav2 nav .navwrapper section a
+{
+  border: solid 1px transparent;
+  border-bottom: 2px solid whitesmoke;
+  padding: 1rem 0.5rem 0.1rem 0.5rem;
+  margin: 0 1rem -0.5rem 1rem;
+  text-transform: uppercase;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+main#nav2 nav .navwrapper section a:hover
+{
+  border-bottom-color: limegreen;
+}
+
+/* ----------------------------------- */
+
+main#nav3 .navigation nav 
+{
+  background-color:rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  visibility:hidden;
+  transition:all 0.3s ease-in-out;
+}
+
+main#nav3 .navigation nav ul
+{
+  list-style-type:none;
+  padding:0;
+  margin:0;
+  position:absolute;
+  left:50%;
+  top:170px;
+  transition:all 0.3s ease-in-out;
+  transform:translateX(-50%);
+}
+
+main#nav3 .navigation nav ul li 
+{
+  transform:translateY(50px);
+  opacity:0;
+}
+
+main#nav3 .navigation nav ul li a
+{
+  display:block;
+  font-size:2em;
+  text-decoration:none;
+  padding:10px 0;
+  text-align:center;
+  color:#fff;
+  font-weight:bold;
+  transition:all 0.2s ease-in-out;
+  text-shadow:1px 1px 2px rgba(0,0,0,.5);
+}
+
+main#nav3 .navigation nav ul li a:hover 
+{
+  color:maroon;
+}
+
+main#nav3 .navigation .toggle-btn 
+{
+  display:block;
+  position:fixed;
+  z-index:10;
+  right:10px;
+  top:10px;
+  cursor:pointer;
+}
+
+main#nav3 .navigation .toggle-btn .bar 
+{
+    width:30px;
+    height:2px;
+    margin:7px auto;
+    background-color: maroon;
+    transition:all 0.3s ease-in-out;
+    box-shadow:0 0 3px 1px rgba(0,0,0,.3);
+}
+
+main#nav3 .navigation .toggle-btn .bar:nth-child(2) 
+{
+  width: 20px;
+}
+
+main#nav3 .navigation #toggle
+{
+  display: none;
+}
+
+main#nav3 .navigation #toggle:checked ~nav 
+{
+    opacity:1;
+    visibility:visible;
+}
+
+main#nav3 .navigation #toggle:checked ~nav ul 
+{
+  top:70px;
+}
+
+main#nav3 .navigation #toggle:checked ~nav ul li 
+{
+  transform:translateY(0px);
+  opacity:1;
+}
+
+main#nav3 .navigation #toggle:checked + label.toggle-btn .bar 
+{
+  background-color: whitesmoke;
+}
+
+main#nav3 .navigation #toggle:checked + label.toggle-btn .bar:nth-child(2) 
+{
+  transform:translateX(50px);
+  opacity:0;
+}
+
+main#nav3 .navigation #toggle:checked + label.toggle-btn .bar:nth-child(1) 
+{
+  transform:translateY(10px) rotate(45deg);
+}
+
+main#nav3 .navigation #toggle:checked + label.toggle-btn .bar:nth-child(3) 
+{
+  transform:translateY(-8px) rotate(-45deg);
+}

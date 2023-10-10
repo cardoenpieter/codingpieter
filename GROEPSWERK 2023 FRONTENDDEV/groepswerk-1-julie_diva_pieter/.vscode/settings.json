@@ -1,0 +1,20 @@
+{
+    "liveSassCompile.settings.includeItems": [
+
+    ],
+    "liveSassCompile.settings.watchOnLaunch": true,
+    "liveSassCompile.settings.formats": [
+
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/css",
+            "savePathReplacementPairs": null
+        }
+    ],
+    "liveSassCompile.settings.partialsList": [
+        "/**/_*.s[ac]ss",
+        "/scss/components/**"
+    ],
+    "liveSassCompile.settings.generateMap": false
+}

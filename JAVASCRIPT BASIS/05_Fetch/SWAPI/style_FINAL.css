@@ -1,0 +1,52 @@
+.resource-list {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+section {
+    padding-top: 2rem;
+}
+
+.loading {
+    position: relative;
+    min-height: 5rem;
+}
+
+.loading:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(32, 43, 56, 0.5);
+}
+
+.loading:after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-width: 3px;
+    border-style: solid;
+    border-color: white transparent white transparent;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-top: -1rem;
+    margin-left: -1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

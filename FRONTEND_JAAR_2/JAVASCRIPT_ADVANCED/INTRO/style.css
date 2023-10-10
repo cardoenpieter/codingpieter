@@ -1,0 +1,47 @@
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+div {
+    width: 60%;
+    height: 80vh;
+    background-color: whitesmoke;
+    border-radius: 25px;
+    position: relative;
+    margin: auto;
+    margin-top: 10vh;
+    box-shadow: 10px 10px 28px -3px rgba(0,0,0,0.75);
+}
+
+header {
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 20px;
+}
+
+form {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+form input {
+    width: 100%;
+    border-radius: 25px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+.todo {
+    width: 100%;
+}
+
+.todo button {
+    background: none;
+    border: none;
+    float: right;
+    cursor: pointer;
+}
+

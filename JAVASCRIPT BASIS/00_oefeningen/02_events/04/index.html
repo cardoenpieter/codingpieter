@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            html {
+                font-size: 18px;
+                font-family: sans-serif;
+            }
+            body {
+                height: 100vh;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .input {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                padding-bottom: 0.5rem;
+            }
+
+            .input input {
+                border-radius: 0;
+                height: 2rem;
+                width: 15rem;
+                margin: 0.8rem 0;
+                font-size: 1rem;
+                line-height: 2rem;
+            }
+
+            .input #count {
+                position: absolute;
+                bottom: 0.3rem;
+                left: 0.2rem;
+                font-size: 0.8rem;
+            }
+
+            button {
+                background-color: dimgrey;
+                color: white;
+                border: none;
+                font-size: 1rem;
+                line-height: 2rem;
+                padding: 0 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <label class="input">
+            Name:
+            <input id="name-input" type="text" />
+            <span id="count">0</span>
+        </label>
+        <button id="submit-btn">Submit</button>
+
+        <p id="hello-container"></p>
+
+        <script src='main.js'></script>
+    </body>
+</html>

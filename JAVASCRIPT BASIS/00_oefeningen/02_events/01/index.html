@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+
+        <style>
+            body {
+                height: 10000px;
+                padding: 0;
+                margin: 0;
+                position: relative;
+            }
+
+            .item {
+                height: 250px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .item.show {
+                border: 50px solid red;
+            }
+
+            #item-one {
+                position: absolute;
+                top: 200px;
+                background-color: green;
+            }
+
+            #item-two {
+                position: absolute;
+                top: 1200px;
+                background-color: green;
+            }
+
+            #item-three {
+                position: absolute;
+                top: 2200px;
+                background-color: green;
+            }
+
+            #item-four {
+                position: absolute;
+                top: 3200px;
+                background-color: green;
+            }
+
+            #item-five {
+                position: absolute;
+                top: 4200px;
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="item" id="item-one">One</div>
+        <div class="item" id="item-two">Two</div>
+        <div class="item" id="item-three">Three</div>
+        <div class="item" id="item-four">Four</div>
+        <div class="item" id="item-five">Five</div>
+
+        <script src="main.js"></script>
+    </body>
+</html>

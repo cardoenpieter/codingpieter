@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: goldenrod;
+                height: 100vh;
+            }
+
+            #canvas {
+                width: 500px;
+                height: 500px;
+                background-color: #fff;
+                border: 5px solid rebeccapurple;
+                position: relative;
+            }
+
+            .green-dot {
+              position:absolute;
+              background-color: forestgreen;
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+            }
+
+            .red-square {
+              position:absolute;
+              background-color: mediumvioletred;
+              width: 5px;
+              height: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="canvas"></div>
+
+        <script src="main.js"></script>
+    </body>
+</html>

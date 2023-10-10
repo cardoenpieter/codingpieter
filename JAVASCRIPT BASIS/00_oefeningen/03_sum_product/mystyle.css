@@ -1,0 +1,42 @@
+button {
+    background-color: dimgrey;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 0 2rem;
+    border-radius: 0.4rem;
+    margin: 0.4rem;
+}
+
+button:hover {
+    background-color: rgb(135, 155, 226);
+    color: rgb(203, 216, 21);
+    border: none;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 0 2rem;
+}
+
+.btn-delete:hover {
+    background-color: rgb(224, 97, 97);
+    color: rgb(96, 13, 13);
+    border: none;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 0 2rem;
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    color: sienna;
+}
+
+.number-input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#result-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

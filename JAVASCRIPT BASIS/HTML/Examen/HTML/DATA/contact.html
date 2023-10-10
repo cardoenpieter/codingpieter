@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chief Mouser</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/syntra_core.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <section id="logo">
+            <img src="img/ChiefMouserLogo.jpg" alt="chiefmouser">
+        </section>
+        <nav class="nav-main">
+          <a href="index.html" class="nav-link ">Chief Mouser</a>
+          <a href="henryviii.html" class="nav-link">Henry VIII</a>
+          <a href="historiek.html" class="nav-link">Historiek</a>
+          <a href="woordenboek.html" class="nav-link">Woordenboek</a>
+          <a href="galerij.html" class="nav-link">Galerij</a>
+          <a href="contact.html" class="nav-link nav-link__current">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+        <h1>Contact</h1>    
+        </section>
+
+        <section id="contact">
+            <form action="#form" id="form" class="formgroup">
+                <section class="grid grid-col4"><!--grid-col4:alle inputvelden rechtlijnig onder elkaar-->
+                    <div>
+                        <label for="name">Naam</label><!--for="" gaat kijken naar de id-->
+                        <input type="text" name="name" id="name"><!--name="" wordt gebruikt bij JS als we dat veld willen opvragen-->
+                    </div>
+                    <div>
+                        <label for="firstname">Voornaam</label>
+                        <input type="text" name="firstname" id="firstname">
+                    </div>
+                </section>
+                
+                <section class="grid grid-col4"><!--grid-col4:alle inputvelden rechtlijnig onder elkaar-->
+                    <div>
+                        <label for="streetandnumber">Straat en nummer</label>
+                        <input type="text" name="streetandnumber" id="streetandnumber">
+                    </div>
+                    <div>
+                        <label for="zipcodeandcity">Postcode en stad</label>
+                        <input type="text" name="zipcodeandcity" id="zipcodeandcity">
+                    </div>
+                    <div>
+                        <label for="email">E-mailadres</label>
+                        <input type="text" name="email" id="email"><!--type="" dit MOET "email" zijn!!!-->
+                    </div>  
+                </section>
+
+                <section class="grid grid-col4"><!--grid-col4:alle inputvelden rechtlijnig onder elkaar-->
+                    <div>
+                        <label for="message">Uw bericht</label>
+                        <textarea for="message"></textarea>
+                    </div>
+                </section> 
+
+                <section>
+                    <div><input type="submit" value="Contact opnemen"></div>
+                </section>
+                
+            </form>
+        </section>
+    </main>
+
+    
+    <footer class="grid grid-col2">
+        <div>Syntra Midden-Vlaanderen &#169;2023</div> 
+        <div>Eindwerk module HTML - Opleiding front end developer 1</div>    
+    </footer>
+
+</body>
+</html>

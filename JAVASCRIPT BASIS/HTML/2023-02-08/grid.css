@@ -1,0 +1,26 @@
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 26px; /*standaard grootte, hier wordt ook de rem op bepaald*/
+}
+
+.grid-container {
+    background-color: darkgoldenrod;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+    justify-content: space-evenly; /*breedte wordt bepaald door de content*/ 
+}
+
+.grid-item { 
+    background-color: aquamarine;
+    text-align: center;
+    border: 1px solid black;
+    min-height: 200px; /*deze minimun gaat bepalen dat elk blokje mooi gevuld wordt*/
+}
+
+.special-item {
+    grid-column-start: 1; /*op lijn 1 starten van de kolom*/
+    grid-column-end: 3; /*op lijn 3 eindigen van de kolom*/
+    grid-row-start: 1; /*op lijn 1 starten van de rij*/
+    grid-row-end: 3; /*op lijn 3 eindigen van de rij*/
+}

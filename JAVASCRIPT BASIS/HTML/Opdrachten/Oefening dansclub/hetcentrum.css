@@ -1,0 +1,95 @@
+/*
+*
+*
+* primair:      #D9560B
+* secundair:    #008C8B
+* wit:          #FCFCFC (vuil wit)
+* zwart:        #1A0A01
+*
+*
+*volgorde van font, padding, gap, ... is niet echt belangrijk, let wel: css leest van boven naar onder, dus het onderste element van 1zelfde type geldt en zal dus ook uitgevoerd worden
+*/
+
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    background-color: #FCFCFC;
+    color:#1A0A01;
+}
+
+header {
+    background-color: #D9560B;  /*zonder de reset.css, zou er nog een witte border zijn door de webbrowser*/
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem; /*verhindert dat de titel dansclub en de nav tegen elkaar zouden komen bij het verkleinen van het scherm*/
+}
+
+header #logo {
+    font-size: 2rem;
+    color: #FCFCFC;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* navigatie rechts zetten */
+header nav#nav-main {
+    display: flex; /*items moeten flexibel zijn*/
+    justify-content: flex-end; /*dit moet naar de rechterkant geschoven worden*/
+    text-align: right;
+    
+}
+
+/* zoeken naar a-tag met de klasse nav-item */
+header nav#nav-main a.nav-item {
+    display: block; /*dit zijn echte blocks geworden waarmee er mag verschoven worden*/
+    background-color: #008C8B;
+    color: #FCFCFC;
+    text-decoration: none;
+    padding: 0.5rem; /*dit duwt de background color buiten de nav-main*/
+    margin: 0 0.2rem;
+}
+
+/* er voor zorgen dat de current omgekeerde kleuren krijgt en dus opvalt op welke pagina je zit*/
+header nav#nav-main a.nav-item_current {
+    background-color: #FCFCFC;
+    color: #008C8B;
+}
+
+footer {
+    border-top: 2px solid #D9560B;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+
+}
+
+main {
+    max-width:1200px ;      /*maximale breedte om de tekst in de main centraler te zetten*/
+    margin: 1rem auto;      /*1rem: boven en onder witruimte laten, auto:witruimte rondom tekst zelf laten berekenen */
+    padding: 1rem;          /*witruimte ook langs de borders laten*/
+}
+
+/*iedere section binnen in de main*/
+main section {
+    margin: 1rem 0;
+}
+
+/*moet zich in de lijn gaan in passen en zich naar de breedte gaan aanpassen, waarom? Bij reset.css staat deze block ingesteld als display: block;
+    max-width: 100%; */
+img.social {
+    display: inline-block;
+}
+
+/*kolommen stylen*/
+.grid-3-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem; /*witruimte tussen de kolommen*/
+}
+
+/*logos in het center zetten*/
+.text-center {
+    text-align: center;
+}

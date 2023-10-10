@@ -1,0 +1,163 @@
+header,
+footer {
+    background-color: maroon;
+    color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#nav-big
+{
+    display: none;
+}
+
+#nav-small
+{
+    display: block;
+}
+
+#nav-small ul
+{
+    margin: 1rem auto;
+    text-align: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    background-color: bisque;
+    padding: 0.5rem 1rem;
+    margin: 0 0.1rem;
+    border-radius: 1rem;
+    border: 2px solid bisque;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: maroon;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header nav ul li:hover {
+    background-color: maroon;
+    color: bisque;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main {
+    margin-top: 10rem;
+}
+
+#slider img.mySlides {
+    display: block;
+    width: 100%;
+}
+
+.padded
+{
+    padding: 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 768px) 
+{
+    #nav-big
+    {
+        display: flex;
+    }
+
+    #nav-small
+    {
+        display: none;
+    }
+
+    header #nav-big
+    {
+        flex-direction: row;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-2-left {
+        grid-template-columns: 1fr 5fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header nav ul li
+    {
+        margin: 0 0.5rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .padded
+    {
+        padding: 0.1rem;
+    }
+}
+
+#calendar {
+    padding: 2rem;
+    background-color: maroon;
+    margin: 3rem 0;
+}
+
+.calendar-item {
+    background-color: rgba(252, 252, 252, 0.5);
+    padding: 2rem;
+    border: 3px solid white;
+    border-radius: 1rem;
+}
+
+.calendar-item h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.calendar-item .calendar-meta {
+    text-align: right;
+    font-style: italic;
+}
+
+.calendar-item .calendar-ticket {
+    display: block;
+    padding: 0.25rem;
+    border: 3px solid white;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: white;
+}

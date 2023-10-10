@@ -1,0 +1,140 @@
+/***INDEX***/
+/**syntra-core is niet ingeladen dus de rem wordt gepakt door de browser zelf*/
+header {
+    background-color: #ff4500;
+}
+
+header h1 {
+    text-align: center; /* block based element*/
+    text-transform: uppercase;
+    color: beige;
+    padding: 2rem;      /*rem is gebaseerd op de pixels in syntra-core font-size, indien niet aanwezig gaat hij kijken naar de browser font-size*/
+}
+
+/*main#grid -> neemt enkel main elementen vast die het id grid hebben*/
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem; /*top neemt enkel de top en niet left, right en bottom*/
+}
+
+/*
+#grid .tile {
+    border: 1px solid orangered;
+    background-color:green;
+    height: 20vh; op basis van font-size, wanneer dit verandert gaat de height ook mee veranderen, vh viewportheight gaat rekening houden met scherm
+}
+*/
+
+/*de hele blok als knop maken*/
+/*height: 100%; hier procent kiezen omdat er een ouder is die het gaat bepalen*/
+#grid .tile a {
+    display: flex;                                     /*display: block een block binnen een ouder*/
+    background-color: orange;
+    text-align: center;                                 /*de tekst login binnen de a tag in deze css code centreren*/
+    text-decoration: none;
+    color: black;
+    
+    border: 1px solid orangered;
+    height: 20vh;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 20px rgb(0, 0, 0, 0.3);  /*3e item is de blurry*/
+    transition: box-shadow 300ms ease-in-out;
+    /*transition: font-size 100ms ease-in-out;*/
+    
+}
+
+#grid .tile a:hover {
+    box-shadow: 10px 10px 20px rgb(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+}
+
+/***LOGIN 1***/
+
+/*terug naar overzicht*/
+#back p {
+    text-align: right;
+    padding: 1rem;
+}
+
+
+#back p a {
+    text-decoration: none;
+    color: #ff4500;
+    text-transform: uppercase;
+}
+
+#login-form {
+    max-width: 400px;
+    font-size: 22px;    /*rem wordt enkel in deze groep gepakt*/
+    border: 1px solid orangered;
+    margin: 1rem auto;  /*1 item: alles zelfde, 2 items:1->top en bottom 2->links en rechts, 4 items: top right bottom left*/
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.3);
+}
+
+#login1 .form-group,
+#login3 .form-group {
+    display: flex;                      /*alle elementen die men tegenkomt moet onder elkaar komen en vormt een block*/
+    flex-direction: column;             /**/
+    margin: 0.5rem 0;
+}
+
+#login1 .form-group label,
+#login3 .form-group label {
+    color: orangered;
+    font-weight: bolder;
+}
+
+#login1.form-group input,
+#login3.form-group input {
+    padding: 0.25rem 0.5rem;
+}
+
+/*dit krijgt voorrang op vb een JS doc*/
+#login1 .form-group input[type="submit"],
+#login3 .form-group input[type="submit"] {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: #ff4500;
+    color: beige;
+    text-transform: uppercase;
+    border-radius: 0.4rem;
+}
+
+/***LOGIN 3***/
+
+#login3 {
+    max-width: 400px;
+    font-size: 22px;    /*rem wordt enkel in deze groep gepakt*/
+    border: 3px solid orangered;
+    margin: 1rem auto;
+}
+
+#login3 .logo {
+    margin: 2rem;
+    border-bottom: 3px dotted #ff4500; /*deze stippellijn op de omkadering van logo zetten aangezien het logo img een max width heeft*/
+    padding-bottom: 3rem;
+}
+
+#login3 .logo img {
+    max-width: 200px; /*breedte aanpassen dus ook hoogte proportioneel aanpassen*/
+    height: auto;
+    margin: 0 auto;
+
+}
+
+#login3 form {
+    padding: 1rem 2rem;
+}
+
+#login3 form input {
+    border-radius: 2rem;
+}
+
+
+

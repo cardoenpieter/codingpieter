@@ -1,0 +1,40 @@
+.section.no-top-padding {
+  padding-top: 0;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+#todo-list .box.active {
+  font-weight: bold;
+}
+
+#done-list .box p {
+  color: darkgrey;
+  text-decoration: line-through;
+}
+
+.done-btn{
+  color: #23d160;
+  margin-left: 1.5rem;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-btn {
+  color: #ff2b56;
+  margin-left: 1.5rem;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.count-container {
+  text-align: right;
+  padding: 0 1.5rem;
+}

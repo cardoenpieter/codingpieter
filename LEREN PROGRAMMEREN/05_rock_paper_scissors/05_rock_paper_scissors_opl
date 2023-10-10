@@ -1,0 +1,190 @@
+function randomNumberBetween0And2() {
+    return Math.floor(Math.random() * 3);
+}
+
+function rpsToNumber(rps) {
+    let rpsNumber;
+    switch (rps) {
+        case 'rock':
+            rpsNumber = 0;
+            break;
+        case 'paper':
+            rpsNumber = 1;
+            break;
+        case 'scissors':
+            rpsNumber = 2;
+    }
+
+    return rpsNumber;
+}
+
+function askForRPS() {
+    let userRPS = prompt('Rock, paper or scissors?').toLowerCase();
+
+    while (
+        userRPS !== 'rock' &&
+        userRPS !== 'paper' &&
+        userRPS !== 'scissors'
+    ) {
+        userRPS = prompt(
+            userRPS + ' is invalid, please enter rock, paper or scissors?'
+        ).toLowerCase();
+    }
+
+    return rpsToNumber(userRPS);
+}
+
+function rpsGameRound() {
+    let userRPS = askForRPS();
+    let aiRPS = randomNumberBetween0And2();
+
+    if (userRPS === aiRPS) {
+        return confirm('It was a tie, try again?');
+    } else if (
+        (userRPS === 0 && aiRPS === 2) ||
+        (userRPS === 1 && aiRPS === 0) ||
+        (userRPS === 2 && aiRPS === 1)
+    ) {
+        return confirm('You won, try again?');  
+    } else {
+        return confirm('You lost, try again?'); 
+    }
+}
+
+
+function rpsGame() {
+    let playAgain = true;
+
+    while (playAgain) {
+        playAgain = rpsGameRound();
+    }
+
+    alert('See you next time!');
+}
+
+rpsGame();
+
+
+
+//oplossing op 14/11/22, scores bijhouden van user en AI
+
+//zie bovenstaande van de code
+
+/**
+ * rpsGameRound
+ * @returns {boolean} Returns true if player won and false if AI won
+ */
+ function rpsGameRound() {
+    let userRPS = askForRPS();
+    let aiRPS = randomNumberBetween0And2();
+
+    if (userRPS === aiRPS) {
+        return confirm('It was a tie, play again?');
+    } else if (
+        (userRPS === 0 && aiRPS === 2) ||
+        (userRPS === 1 && aiRPS === 0) ||
+        (userRPS === 2 && aiRPS === 1)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function rpsGame() {
+    let playAgain = true;
+    let computerScore = 0;
+    let playerScore = 0;
+
+    while (playAgain) {
+        let playerWon = rpsGameRound();
+
+        if (playerWon) {
+            playerScore++;
+            playAgain = confirm(
+                `You won the current score is: Player ${playerScore} | AI ${computerScore}. Play again?`
+            );
+        } else {
+            computerScore++;
+            playAgain = confirm(
+                'You lost the current score is: Player ' +
+                    playerScore +
+                    ' | AI ' +
+                    computerScore +
+                    '. Play again?'
+            );
+        }
+    }
+
+    alert('See you next time!');
+}
+
+rpsGame();
+
+
+
+
+
+//oplossing met sets bijhouden
+
+/**
+ * rpsGameRound
+ * @returns {boolean} Returns true if player won and false if AI won
+ */
+ function rpsGameRound() {
+    let userRPS = askForRPS();
+    let aiRPS = randomNumberBetween0And2();
+
+    while (userRPS === aiRPS) {                     //zolang deze 2 gelijk zijn gaat hij opnieuw spelen en nieuwe waarde berekenen van user en AI, dus hij houdt een tie niet bij
+        alert('It was a tie, try again.');
+        userRPS = askForRPS();                      //deze userrps moet er in zitten omdat er een nieuwe waarde moet inzitten anders zou er een infinity loop ontstaan
+        aiRPS = randomNumberBetween0And2();         //idem als hierboven, dus airps moet er in zitten ...
+    }
+
+    if (
+        (userRPS === 0 && aiRPS === 2) ||
+        (userRPS === 1 && aiRPS === 0) ||
+        (userRPS === 2 && aiRPS === 1)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function rpsGame() {
+    let playAgain = true;
+    let computerScore = 0;
+    let playerScore = 0;
+
+    while (computerScore < 3 && playerScore < 3) {
+        let playerWon = rpsGameRound();
+
+        if (playerWon) {
+            playerScore++;
+            alert(
+                `You won the current score is: Player ${playerScore} | AI ${computerScore}.`
+            );
+        } else {
+            computerScore++;
+            alert(
+                'You lost the current score is: Player ' +
+                    playerScore +
+                    ' | AI ' +
+                    computerScore +
+                    '.'
+            );
+        }
+    }
+
+    if (playerScore === 3) {
+        alert('You won the match with ' + playerScore + '/' + computerScore);
+    } else {
+        alert('You lost the match with ' + playerScore + '/' + computerScore);
+    }
+}
+
+rpsGame();
+
+
+

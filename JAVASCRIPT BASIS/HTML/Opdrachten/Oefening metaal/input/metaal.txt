@@ -1,0 +1,70 @@
+BOVENAAN
+links: METAAL
+rechts: menu
+
+PAGINA'S
+homepagina
+laagoven
+CMB
+
+ONDERAAN
+links: copyright info
+midden: "Opdracht Syntra MVL"
+rechts: "Opleiding front-end developer - jaar 1"
+
+HOMEPAGINA
+  INTRO:
+    Een hoogoven is een installatie waarin ijzererts en koolstof worden gesmolten en gemengd, daarbij worden ze zo sterk verhit dat via een aantal chemische reacties ijzer smelt ontstaat waarin een zeker percentage koolstof is opgelost, dat vervolgens kan worden afgetapt. De koolstof dient tegelijkertijd als brandstof voor de verhitting en als reductiemiddel van het ijzererts.
+  CONTENT:
+    SECTIE 1:
+    2 kolommen
+    Geschiedenis:
+      Voor het tijdperk van de hoogovens werd voor het produceren van ijzer gebruikgemaakt van laagovens. Hierin vond dezelfde reactie plaats, maar was het ontstane ijzer niet zo heet dat het vloeibaar werd, het lag als een gesinterde massa in de slak en moest door verhitten en hameren verder worden bewerkt en gezuiverd.
+      In China bestonden hoogovens vanaf ongeveer de 5e eeuw v.Chr., in het Westen vanaf de Hoge Middeleeuwen. In het westen verspreidde de hoogoven zich vanuit de regio rond de Waalse, aan de Maas gelegen stad Luik. In 1491, aan het eind van de 15e eeuw werd de hoogoven in Engeland geïntroduceerd. De brandstof die in hoogovens werd gebruikt, was steevast houtskool. De succesvolle, door uitputting van de beschikbare hoeveelheid houtskool gedreven vervanging van houtskool door cokes wordt toegeschreven aan Abraham Darby. Deze revolutionaire innovatie dateert van 1709. De efficiëntie van het proces werd verder versterkt door de praktijk om de ingeblazen lucht voor te verwarmen. De Schot James Beaumont Neilson nam hier in 1828 patent op.
+      De hoogoven onderscheidt zich hierin van de laagoven, dat het doel van de hoogoven het produceren van gesmolten metaal is, dat kan worden afgetapt uit de oven, terwijl het de bedoeling van de laagoven juist is om smelten te voorkomen, zodat de koolstof niet in het ijzer opgelost wordt. Laagovens werden ook kunstmatig aangeblazen met behulp van blaasbalgen, maar de term hoogoven wordt normaal gesproken gereserveerd voor ovens, waar ijzer (of een ander metaal) uit erts wordt geraffineerd. Een hoogoven maakt gebruik van het tegenstrooms-uitwisselingproces, dit in tegenstelling tot een laagoven.
+    Werking:
+      Bovenaan de hoogoven worden afzonderlijke lagen cokes (2,5) en lagen sinter, ijzeroxidepellets & stukerts (1,6) geladen. Een alternatief is om sinter te laden, een gesinterd, sterk en poreus materiaal van ijzererts, cokes, kalk en vloeimiddel. Beneden, aan de blaasmonden, wordt hete lucht (7, ongeveer 1200 °C, voorverwarmd in warmtewisselaars 13) en poederkool (16) ingeblazen, eventueel verrijkt met zuurstof.
+      De zuurstof uit de lucht verbrandt de koolstof uit de cokes en poederkool onder vorming van koolstofmonoxide (CO). Het CO-gas, dat een temperatuur van ongeveer 2200-2400 °C heeft, stijgt op door de lagen cokes en erts. De ijzeroxiden in de sinter, pellets en stukertsen reduceren onder deze omstandigheden tot ijzer, en smelten tot ijzersmelt. Dit smelt van ruwijzer sijpelt nu door de cokeslagen naar beneden en verzamelt zich onder in de hoogoven (de zogenaamde haard van de hoogoven).
+      Wanneer er zich voldoende ruwijzersmelt heeft verzameld in de haard, wordt de hoogoven onderaan opengeboord en stroomt het ruwijzersmelt (9) via het tapgat naar buiten. Daar wordt het opgevangen in mengers (11). Dit zijn treinwagens met een torpedovormig voorraadvat met vuurvaste binnenbekleding. Deze worden getransporteerd naar de staalfabriek voor verdere verwerking. Wanneer al het ruwijzer uit de hoogoven is afgetapt, wordt het tapgat weer dichtgemaakt. Het aftappen duurt ongeveer 90 minuten.
+      Sinter, pellets en stukertsen bevat naast ijzeroxides ook onzuiverheden waaronder calciumoxide (CaO) en siliciumdioxide (SiO2). Deze materialen smelten ook en vormen de slak (8), die bovenop het ijzersmelt blijft drijven. De slak wordt ook afgetapt (10) en verwerkt in o.a. de cementindustrie.
+    SECTIE 2:
+    Moderne hoogovens:
+      Moderne hoogovens produceren 8500 tot 13.500 ton ruwijzer per dag, rond 1860 lag dit nog rond de 25 ton.
+      Aan het begin van de 20e eeuw hadden de hoogovens een binnendiameter van 4 à 5 meter en produceerden ze ongeveer 100.000 ton ruwijzer per jaar. Aan het einde van de 20e eeuw produceerden de grootste hoogovens zo’n 3 tot 4 miljoen ton staal per jaar en was de binnenmaat gegroeid tot 14 à 15 meter. Sinds het midden van de jaren tachtig is de omvang van de hoogovens nauwelijks meer toegenomen. De productie is nog wel licht gestegen en de allergrootste hoogovens produceren tussen de 12.000 en 13.500 ton ruwijzer per dag. In de tabel is deze ontwikkeling weergegeven, maar een tijdsaanduiding ontbreekt in de bron.
+      In Nederland staan er hoogovens in IJmuiden die onderdeel zijn van Tata Steel. In België zijn er te Gent van de groep ArcelorMittal, verder twee in Seraing en een in Charleroi.
+
+LAAGOVEN
+  INTRO:
+    Een laagoven is een voorganger van de modernere hoogoven voor de winning van ijzer uit ijzererts. In deze oven, die een hoogte had van hoogstens 3 meter, werden lagen ijzererts en houtskool op elkaar gestapeld.
+  CONTENT:
+    De laagoven kon slechts een lagere temperatuur dan een houtskoolhoogoven bereiken, ca. 1200 °C in plaats van 1500 °C, met als nadeel dat het ijzer niet in vloeibare vorm gewonnen kon worden, maar als een gesinterde massa die in de slak zat. Later kon wel een smelt worden bereikt en ontstond gietijzer. Door afwisselend te verhitten en te hameren werd het ijzer gezuiverd en het koolstofgehalte omlaag gebracht, zodat welijzer, smeedijzer, ofwel staal ontstond. Hiervan werden onder meer wapens gemaakt.
+    Doordat het ijzer niet smolt tijdens dit proces, had het ook geen homogene structuur.
+    In 1784 werd de puddeloven (dry puddling) uitgevonden door Henry Cort. Hiermee kon de staalbereiding voor het eerst op industriële schaal plaatsvinden. Dit was een vlamoven. De vlam streek over het ijzer, waardoor het ontkoold werd en er een deegachtige massa ontstond. Ook hier moest door smeden de slak weer uit worden verdreven. Het aldus ontstane puddelijzer had dus eveneens geen homogene structuur.
+
+CMB
+  INTRO:
+    De Centrale der Metaalindustrie van België (CMB), in het Frans Centrale de l'Industrie du Métal de Belgique (CMB) is een Belgische vakcentrale die is aangesloten bij het Algemeen Belgisch Vakverbond (ABVV). Het was de eerste confederale vakbond in België.
+  CONTENT:
+    In 1886 werd de Nationale Federatie van Metaalarbeiders opgericht.
+    In 1912 werd de naam omgevormd tot Centrale der Metaalbewerkers en telde ze reeds 22.000 leden.
+    Sinds 1993 draagt ze haar huidige naam.
+    CMB besloot tijdens een buitengewoon congres in 2006 over te gaan op een nieuwe structuur die zich voornamelijk op de regio's richt. Hierdoor is ze in facto de eerste confederale vakbond in België. De drie entiteiten (Vlaanderen, Brussels Hoofdstedelijk Gewest en Wallonië) kunnen hierdoor hun syndicale werking in volle autonomie ontplooien. Aan Vlaamse zijde is dit ABVV Metaal en aan de Waals-Brusselse zijde is dit Metaalbewerkers Wallonië-Brussel (MWB). Daarnaast is er nog steeds een overkoepelde samenwerking.
+    Werking:
+      - Statutair Congres
+        Het Statutaire Congres komt elke vier jaar samen en bestaat uit de syndicale afgevaardigden. De bevoegdheden zijn de politieke lijn bepalen door middel van het goedkeuren van resoluties. Daarnaast verkiest het de leden van het Federaal Bureau.
+      - Controle Commissie
+        De Controle Commissie is een orgaan binnen de vakcentrale dat toekijkt op de boekhouding en financiën van de vakcentrale. Het is samengesteld uit 4 verkozenen door het Congres en 1 verkozene door het Federaal Bestuur.
+      - Federaal Bestuur
+        Het federaal bestuur is een orgaan binnen de vakcentrale dat waakt over de naleving van de statuten en de uitvoering van de beslissingen van het Federaal Bestuur en het Congres. Het komt bijeen om de zes maanden en is samengesteld uit leden van het Federaal Secretariaat en vertegenwoordigers van de gewestelijke afdelingen.
+      - Uitvoerend Bestuur
+        Het uitvoerend bestuur is een orgaan binnen de vakcentrale en komt tweewekelijks samen. Het is samengesteld uit leden van het Federaal Secretariaat en de negen verkozenen van het Federaal Bestuur. De bevoegdheden zijn de financiën, het beheer en de werking van de Gewestelijke Afdelingen.
+      - Federaal Secretariaat
+        Het Federaal secretariaat is een orgaan dat het dagelijks bestuur van de vakcentrale organiseert. Het bestaat uit de Voorzitter, Algemeen Secretaris en 6 federale secretarissen.
+      - Gewestelijke Afdelingen
+        De gewestelijke afdelingen vormen de basis van de vakcentrale en organiseren dienstverlening, probleemoplossing en communicatie met de leden en syndicaal afgevaardigden.
+      - Vakcongres
+        Is een orgaan binnen de vakcentrale dat elke vier jaar georganiseerd wordt voor elke belangrijke sector.
+      - Vakcommissie
+        Dit orgaan binnen de vakcentrale wordt ingesteld door het Federaal bestuur voor elke belangrijke sector. Ze komt naar noodzaak bijeen en is gelast met de voorbereiding en organisatie van de vakbondswerking in de betrokken sector.
+      - Syndicale Afvaardiging
+        Daarnaast zijn er militanten en delegees die verkozen zijn bij de sociale verkiezingen door de werknemers in de bedrijven.

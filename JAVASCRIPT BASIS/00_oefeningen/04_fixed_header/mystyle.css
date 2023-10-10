@@ -1,0 +1,151 @@
+/*
+* primair:      #734E39; bovenaan banner
+* secundair:    #8C5320; intro lettertype
+* wit:          #FCFCFC; pagina-achtergrondkleur
+* zwart:        #1A120E; lettertype 
+* accentkleur1: #201E4A; selectie nav
+* accentkleur2: #F2CAB3; achtergrondkleur footer en lettertype titel/nav
+* accentkleur3: #5B56BF; hover over nav en fijn lijntje footer
+*/
+
+/***** ALL PAGES *****/
+html {
+    font-family: 'Quicksand', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px;
+    background-color: #FCFCFC;
+    color: #1A120E;
+}
+
+header {
+    background-color:#734E39;  
+    height: 50px;
+    width: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; /*verhindert dat de titel en de nav tegen elkaar zouden komen bij het verkleinen van het scherm*/
+    position: fixed;
+    width: 100%;
+}
+
+header #logo {
+    font-size: 2rem;
+    color:#F2CAB3;  
+    text-align: left; 
+}
+
+/* navigatie rechts zetten */
+header nav#nav-main {
+    display: flex; /*items moeten flexibel zijn*/
+    justify-content: flex-end; /*dit moet naar de rechterkant geschoven worden*/
+    text-align: right;   
+}
+
+/* zoeken naar a-tag met de klasse nav-item */
+header nav#nav-main a.nav-item {
+    display: block; /*dit zijn echte blocks geworden waarmee er mag verschoven worden*/
+    color: #F2CAB3;
+    text-decoration: none;
+    margin: 10px; /*dit duwt de background color buiten de nav-main*/
+    
+    font-weight: bold;
+}
+
+
+.header--hidden {
+    top: -50px;
+}
+
+/*mouse over tekst*/
+a:hover {
+    background-color:#5B56BF; 
+}
+
+header nav#nav-main a.nav-item_current {
+    color: #201E4A
+}
+
+
+main {
+    max-width:1200px ;      /*maximale breedte om de tekst in de main centraler te zetten*/
+    margin: auto;      /*1rem: boven en onder witruimte laten, auto:witruimte rondom tekst zelf laten berekenen */
+    padding: 50px;          /*witruimte ook langs de borders laten*/
+}
+
+/*iedere section binnen in de main*/
+main section {
+    margin: 1rem 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.intro {
+    color: #8C5320;
+    font-size: 1.2rem;
+    font-weight: bold;   
+}
+
+.outro {
+    margin: 2.5rem 0;
+}
+
+footer {
+    background-color: #F2CAB3;
+    border-top: 3px solid#5B56BF;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+}
+
+div.name {
+    text-align: center;
+}
+
+div.schoolname {
+    text-align: center;
+}
+
+div.training {
+    text-align: center;
+}
+
+
+/***** STARTPAGINA *****/
+/*kolommen stylen*/
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem; /*witruimte tussen de kolommen*/
+}
+
+
+/***** IMAGES *****/
+img.metal {
+    display:block;
+    border-radius: 2%;
+    margin: 1.5rem auto;   
+    width: auto;
+    height: auto;   
+}
+
+img.oldperson {
+    display:block;
+    border-radius: 2%;
+    width: auto;
+    height: auto; 
+    float: right;
+    margin: 0.4rem; 
+}
+
+
+/***** CMB *****/
+main section section p.data {
+    margin: 1rem 0;
+}
+
+dt {
+    font-weight: bold;
+    margin: 1rem 0;
+}

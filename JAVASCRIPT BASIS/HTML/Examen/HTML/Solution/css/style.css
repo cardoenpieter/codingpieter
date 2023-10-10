@@ -1,0 +1,329 @@
+/*
+*   Main: #730217
+*   Secondary: #0E5673
+*   Accent:  #F2275D
+*
+*   Black: #0D0D0D
+*   White: #F9F9F9
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans&family=Noticia+Text&display=swap');
+
+body
+{
+  font-family: 'Martel Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .title
+{
+  font-family: 'Noticia Text', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header
+{
+  background-color: #730217;
+  max-width: 80%;
+  margin: 0 auto;
+  box-shadow: 0px 5px 10px rgba(13, 13, 13, 0.3);;
+  padding : 1rem;
+}
+
+a
+{
+  color: #F2275D;
+  text-decoration: dotted;
+  transition: all 300ms ease-in-out;
+}
+
+a:hover,
+a:focus
+{
+  color: #730217;
+}
+
+#logo img
+{
+  max-width: 5rem;
+  max-height: 10vh;
+  width: auto;
+  height: auto;
+}
+
+nav.nav-main
+{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 0.8rem;
+}
+
+nav.nav-main .nav-link
+{
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.5rem;
+  background-color: #F2275D;
+  color: #F9F9F9;
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+  line-height: 2rem;
+  font-family: 'Noticia Text', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+nav.nav-main .nav-link.nav-link__current,
+nav.nav-main .nav-link:hover,
+nav.nav-main .nav-link:focus
+{
+  background-color: #0E5673;
+}
+
+.grid
+{
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-col2
+{
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-col2__right
+{
+  grid-template-columns: 5fr 1fr;
+}
+
+.grid-col2__left
+{
+  grid-template-columns: 1fr 5fr;
+}
+
+.grid-col3
+{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-col4
+{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid .column
+{
+  text-align: justify;
+}
+
+section.intro
+{
+  margin: 1rem 0 2rem 0;
+  background-color: #0E5673;
+  color: #F9F9F9;
+  box-shadow: 0px 0px 15px rgba(13, 13, 13, 0.3);
+  padding: 2rem;
+}
+
+main
+{
+  min-height: 75vh;
+}
+
+main section img
+{
+  border-radius: 1rem;
+  margin: 0.25rem auto;
+}
+
+main article p
+{
+  margin: 0.5rem 0;
+}
+
+main .col-full
+{
+  grid-column: 1 / -1;
+}
+
+main div.img-filler
+{
+  background-position: center center;
+  min-height: 15vh;
+  margin: 2rem 0 3rem 0;
+}
+
+main div.img-filler.img-filler__index
+{
+  background-image: url('../img/DowningStreet10.jpg');
+}
+
+main div.img-filler.img-filler__henry
+{
+  background-image: url('../img/HenryVIII_filler.png');
+  min-height: 25vh;
+}
+
+main blockquote
+{
+  margin: 1rem 0 1rem 1rem;
+  border-left: 0.5rem solid #F2275D;
+  padding: 0.25rem 1rem;
+}
+
+main blockquote .citation
+{
+  font-size: 0.7rem;
+  font-style: italic;
+  text-align: right;
+  padding-right: 0.5rem;
+  border-right: 0.5rem solid #730217;
+  color: #730217;
+  border-radius: 2rem;
+}
+
+main ul.historiek
+{
+  margin: 1rem 0 3rem 1rem;
+  padding: 1rem;
+  border-left: 1rem solid #0E5673;
+  list-style-type: square;
+  color: #0E5673;
+}
+
+main ul.historiek li.historiek-item
+{
+  margin: 0.5rem 1rem;
+}
+
+main ul.historiek li.historiek-item label.naam
+{
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+  min-width: 40%;
+  margin-right: 1rem;
+  border-right: 3px dotted #730217;
+}
+
+main ul.historiek li.historiek-item span.periode
+{
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  color: #730217;
+}
+
+main dl
+{
+  margin: 2rem 0 3rem 0;
+  border-left: 0.5rem ridge #0E5673;
+  padding-left: 2rem;
+}
+
+main dl dt
+{
+  font-weight: bolder;
+  color: #730217;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+main dl dd
+{
+  margin: 0.5rem 0 1rem 2rem;
+  padding: 0.5rem 1rem;
+  border-left: 0.1rem dotted #730217;
+  font-size: 0.9rem;
+  font-weight: lighter;
+}
+
+main section#gallery
+{
+  gap: 2rem;
+}
+
+main section#gallery .gallery-column
+{
+  display: flex;
+  flex-direction: column;
+}
+
+main section#gallery figure
+{
+  padding: 1rem;
+  box-shadow: 0 0 0.5rem rgba(13, 13, 13, 0.3);
+  margin: 1rem 0;
+  position: relative;
+}
+
+main section#gallery figure img
+{
+  width: 100%;
+  height: auto;
+}
+
+main section#gallery figure figcaption
+{
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  position: absolute;
+  background-color: rgba(14, 86, 115, 0.75);
+  color: #F9F9F9;
+  padding: 1rem;
+  left: 1rem;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+main section#gallery figure:hover figcaption
+{
+  opacity: 1;
+}
+
+main section#contact .formgroup
+{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+main section#contact .formgroup label
+{
+  font-weight: bolder;
+  color: #730217;
+}
+
+main section#contact .formgroup input,
+main section#contact .formgroup textarea
+{
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  border-color: #0E5673;
+  color: #0E5673;
+  font-family: monospace;
+}
+
+main section#contact .formgroup input[type="submit"]
+{
+  align-self: flex-end;
+  background-color: #0E5673;
+  color: #F9F9F9;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+}
+
+main section#contact .formgroup input[type="submit"]:hover,
+main section#contact .formgroup input[type="submit"]:focus
+{
+  background-color: #730217;
+}
+
+footer
+{
+  margin-top: 1rem;
+  background-color: #730217;
+  color: #F9F9F9;
+  font-size: 0.7rem;
+  padding: 1rem 2rem;
+  text-align: center;
+}

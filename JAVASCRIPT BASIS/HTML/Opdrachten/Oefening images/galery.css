@@ -1,0 +1,54 @@
+body {
+    font-size: 24px;
+    padding: 1rem;
+    background-color: rgb(24, 24, 24);
+}
+
+h2 {
+    color: beige;
+}
+
+main {
+    max-width: 1200px; /*max wilt letterlijk zeggen maximum, kan ook kleiner wanneer scherm kleiner wordt*/
+    margin: 0 auto;
+    /*border: 2px solid red;*/
+}
+
+main section#gal01 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+#gal01 figure {
+    border: 1px solid black;
+    margin: 1rem 0;
+    position: relative; /*positie is relatief: deze volgt de flow van de elementen*/
+    padding: 1rem;
+    background-color: rgb(30, 35, 34);
+}
+
+#gal01 figure img {
+    filter: sepia(70%) blur(2px);
+    transition: all 250ms ease-in-out;
+}
+
+#gal01 figure:hover img {
+    filter: none;
+}
+
+#gal01 figure figcaption {
+    position: absolute; /*positie moet zich absoluut gaan positioneren tov de figure(relatief)*/
+    background-color: rgb(255, 255, 255, 0.4);
+    left: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 100;
+    padding: 2rem 1rem;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+
+#gal01 figure:hover figcaption {
+    opacity: 1;
+}

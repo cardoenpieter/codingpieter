@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntra - les 08</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="syntra_core.css">
+</head>
+<body>
+    <main>
+        <h1>LES 08 - form and input</h1>
+
+        <form action="" id="testform">
+            <label for="username">USERNAME:</label>
+            <input type="text" name="username" id="username">
+            <input type="submit" value="Formulier indienen">
+        </form>
+        <hr>
+        <form action="index.html" method="post">
+            <label for="username2">USERNAME:</label>
+            <input type="text" name="username" id="username2">
+            <label for="pass">PASSWORD:</label>
+            <input type="password" name="password" id="pass">
+            <input type="submit" value="LOG IN">
+        </form>
+        <hr>        
+        <form action="">
+            <input type="email" name="mail" id="">
+            <input type="checkbox" name="checkbox" id=""> testen?
+            <input type="radio" name="radio" id="">man
+            <input type="radio" name="radio" id="">vrouw
+            <input type="radio" name="radio" id="">X
+            <br>
+            <input type="date" name="date" id="">
+            <input type="file" name="importfile" id="">
+            <input type="color" name="color" id="">
+            <br>
+            <input type="number" name="number" id="">
+            <input type="range" name="range" id="range" min="0" max="80" value="80" step="10">
+            <label for="range" id="rangeVal"></label>
+            <br>
+            <input type="submit" value="submit">
+        </form>
+        <hr>
+        <form action="">
+            <fieldset>
+                <legend>Contact</legend>
+                <input type="text">
+            </fieldset>
+            <fieldset>
+                <legend>Opmerkingen</legend>
+                <textarea name="opmerking" id="opmerking" cols="50" rows="2"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Favo drankje</legend>
+                <select name="drank" id="" multiple>
+                    <option value="">- maak keuze -</option>
+                    <option value="bier">bier</option>
+                    <option value="cola">cola</option>
+                    <option value="limonade">limonade</option>
+                    <option value="melk">melk</option>
+                    <option value="water">water</option>
+                    <br>
+                    <input type="submit" value="submit">
+                </select>
+            </fieldset>
+        </form>
+
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

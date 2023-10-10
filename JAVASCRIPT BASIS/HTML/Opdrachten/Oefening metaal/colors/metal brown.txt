@@ -1,0 +1,20 @@
+/* Color Theme Swatches in Hex */
+.pattern-of-metal-background-1-hex { color: #8C5320; }
+.pattern-of-metal-background-2-hex { color: #734E39; }
+.pattern-of-metal-background-3-hex { color: #402D22; }
+.pattern-of-metal-background-4-hex { color: #BF9780; }
+.pattern-of-metal-background-5-hex { color: #F2CAB3; }
+
+/* Color Theme Swatches in RGBA */
+.pattern-of-metal-background-1-rgba { color: rgba(140, 82, 32, 1); }
+.pattern-of-metal-background-2-rgba { color: rgba(114, 78, 57, 1); }
+.pattern-of-metal-background-3-rgba { color: rgba(63, 44, 33, 1); }
+.pattern-of-metal-background-4-rgba { color: rgba(191, 151, 128, 1); }
+.pattern-of-metal-background-5-rgba { color: rgba(242, 202, 179, 1); }
+
+/* Color Theme Swatches in HSLA */
+.pattern-of-metal-background-1-hsla { color: hsla(28, 62, 33, 1); }
+.pattern-of-metal-background-2-hsla { color: hsla(22, 33, 33, 1); }
+.pattern-of-metal-background-3-hsla { color: hsla(22, 30, 19, 1); }
+.pattern-of-metal-background-4-hsla { color: hsla(22, 33, 62, 1); }
+.pattern-of-metal-background-5-hsla { color: hsla(22, 71, 82, 1); }

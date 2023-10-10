@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Keydown_Keyup_Keypress</title>
+        <link rel="stylesheet" href="lay-out.css">
+    </head>
+    <body>
+        <h1><em>Keydown_Keyup_Keypress</em></h1>
+
+            <h2>Keydown - Keyup</h2>
+
+                <p>Keydown: orange color (press the keys)</p>
+                <p>Keyup: lightblue color and uppercase (release the keys)</p>
+        
+                <input 
+                    type="text" 
+                    id="keydown&up" 
+                    onkeydown="pressKeyDown()"
+                    onkeyup="pressKeyUp()"
+                    onkeyup="actualKeys()"
+                    placeholder="Type here for text" 
+                    size="50" 
+                />
+
+                <p>Literally typed: <span id="user-text"></span></p>
+
+
+            <h2>Keypress (same as Keydown)</h2> 
+
+                <p>
+                     Deprecated: This feature is no longer recommended. 
+                    Though some browsers might still support it, it may have already been removed from the relevant web standards, 
+                    may be in the process of being dropped, or may only be kept for compatibility purposes.
+                    <a href ="https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event" target = "_blank">Source MDN web docs</a>
+                </p>
+
+        <script src="main.js"></script>
+    </body>
+</html>
