@@ -14,4 +14,3 @@ function displayTasks() {
 function updateInsights() {
   // Your code goes here
 }
-//test oktober 2023
