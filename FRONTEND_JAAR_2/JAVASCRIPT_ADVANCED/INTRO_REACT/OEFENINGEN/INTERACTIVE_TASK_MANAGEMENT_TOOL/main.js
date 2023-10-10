@@ -1,10 +1,15 @@
 const tasks = [];
+
 const taskInput = document.getElementById("taskInput");
+const taskValue = taskInput.value;
+const taskList = document.getElementById("taskList");
+
 function addTask() {
   const allTasks = tasks.map((task) => {
-    return task.value;
+    return task.taskValue;
   });
   console.log(allTasks);
+  //oefening local storage kijken
 }
 
 function displayTasks() {
@@ -15,5 +20,7 @@ function updateInsights() {
   // Your code goes here
 }
 
-//test test test
-//console.log(test)
+// const nameUppercase = productsAboveTreshold.map((product) => {
+//   return `<li>${product.name.toUpperCase()}</li>`;
+// });
+// productList.innerHTML = nameUppercase.join("");
