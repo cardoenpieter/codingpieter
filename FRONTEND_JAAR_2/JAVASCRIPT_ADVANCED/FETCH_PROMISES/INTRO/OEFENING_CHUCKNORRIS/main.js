@@ -4,19 +4,35 @@ fetch("https://api.chucknorris.io/jokes/categories")
   .then((res) => res.json())
   .then((res) => {
     const allCat = res.map((category) => {
-      //addeventlistener, getjokes meegeven, via event.target in de getjokes de categorie meegeven
-      return `<li><button onclick="getJokes()">${category}</button></li>`;
+      return `<li><button>${category}</button></li>`;
     });
     categorie.innerHTML = allCat.join("");
-
+    document.addEventListener("click", function (event) {
+      console.log(`${event.target.innerHTML}`);
+    });
+    getJokes();
     console.log(res);
   });
 
 function getJokes() {
-  fetch("https://api.chucknorris.io/jokes/random?category=food")
+  fetch("https://api.chucknorris.io/jokes/random?category={category}")
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
+      //let category = `{category}`;
+      //console.log(category);
       showValue.innerHTML = res.value;
     });
 }
+
+//addeventlistener, getjokes meegeven, via event.target in de getjokes
+//de categorie meegeven
+//categorie.addEventListener("click", getJokes());
+
+/*
+document
+  .querySelector(".button-container")
+  .addEventListener("click", function (event) {
+    alert(`You clicked on button ${event.target.innerText}`)
+  })
+
+  */
