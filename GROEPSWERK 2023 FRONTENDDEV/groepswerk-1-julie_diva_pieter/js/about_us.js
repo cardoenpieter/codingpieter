@@ -1,6 +1,6 @@
-import '/js/components/header.js';
-import '/js/components/footer.js';
-import '/js/components/socials.js';
+import "./components/header.js";
+import "./components/footer.js";
+import "./components/socials.js";
 
 // function writeTexts(texts) {
 //   const $title = document.getElementById('title');
@@ -13,62 +13,59 @@ import '/js/components/socials.js';
 
 // grid weg bij responsive
 
-
-let $document = window.matchMedia('(max-width: 769px)');
-let $square = document.getElementById('square');
-let $intro = document.getElementById('intro');
-let $gridSection = document.querySelector('.grid-col2_left_');
-let $gridSectionMembers = document.querySelectorAll('.grid-col4');
-let $memberSection = document.querySelectorAll('.member');
-let $memberTwoSection = document.getElementById('member-2');
-
+let $document = window.matchMedia("(max-width: 769px)");
+let $square = document.getElementById("square");
+let $intro = document.getElementById("intro");
+let $gridSection = document.querySelector(".grid-col2_left_");
+let $gridSectionMembers = document.querySelectorAll(".grid-col4");
+let $memberSection = document.querySelectorAll(".member");
+let $memberTwoSection = document.getElementById("member-2");
 
 function removeGrid(mediaQuery) {
   if (mediaQuery.matches) {
-    $square.classList.remove('grid');
-    $intro.classList.remove('grid');
-    $gridSection.classList.remove('grid');
-    $gridSection.classList.remove('grid-col2');
-    $gridSection.classList.remove('grid-col4');
+    $square.classList.remove("grid");
+    $intro.classList.remove("grid");
+    $gridSection.classList.remove("grid");
+    $gridSection.classList.remove("grid-col2");
+    $gridSection.classList.remove("grid-col4");
 
     for (let i = 0; i < $gridSectionMembers.length; i++) {
-      $gridSectionMembers[i].classList.remove('grid');
-      $gridSectionMembers[i].classList.remove('grid-col4');
-      $memberSection[i].classList.remove('member');
+      $gridSectionMembers[i].classList.remove("grid");
+      $gridSectionMembers[i].classList.remove("grid-col4");
+      $memberSection[i].classList.remove("member");
     }
   } else {
-    $square.classList.add('grid');
-    $intro.classList.add('grid');
-    $gridSection.classList.add('grid');
-    $gridSection.classList.add('grid-col2');
-    $gridSection.classList.add('grid-col4');
+    $square.classList.add("grid");
+    $intro.classList.add("grid");
+    $gridSection.classList.add("grid");
+    $gridSection.classList.add("grid-col2");
+    $gridSection.classList.add("grid-col4");
 
     for (let i = 0; i < $gridSectionMembers.length; i++) {
-      $gridSectionMembers[i].classList.add('grid');
-      $gridSectionMembers[i].classList.add('grid-col4');
-      $memberSection[i].classList.add('member');
+      $gridSectionMembers[i].classList.add("grid");
+      $gridSectionMembers[i].classList.add("grid-col4");
+      $memberSection[i].classList.add("member");
     }
   }
 }
 
-$document.addEventListener('change', function (mediaQuery) {
+$document.addEventListener("change", function (mediaQuery) {
   removeGrid(mediaQuery);
 });
 
-
-// herpositioneren van foto en tekst voor mobile 
+// herpositioneren van foto en tekst voor mobile
 
 function reorderElements(mediaQuery) {
   if (mediaQuery.matches) {
-    const $squares = $memberTwoSection.querySelectorAll('.square.member-2');
-    const $texts = $memberTwoSection.querySelectorAll('.member-2-text');
+    const $squares = $memberTwoSection.querySelectorAll(".square.member-2");
+    const $texts = $memberTwoSection.querySelectorAll(".member-2-text");
 
     for (let index = 0; index < $squares.length; index++) {
       $memberTwoSection.insertBefore($squares[index], $texts[index]);
     }
   } else {
-    const $squares = $memberTwoSection.querySelectorAll('.square.member-2');
-    const $texts = $memberTwoSection.querySelectorAll('.member-2-text');
+    const $squares = $memberTwoSection.querySelectorAll(".square.member-2");
+    const $texts = $memberTwoSection.querySelectorAll(".member-2-text");
 
     for (let index = 0; index < $squares.length; index++) {
       $memberTwoSection.insertBefore($texts[index], $squares[index]);
@@ -76,33 +73,29 @@ function reorderElements(mediaQuery) {
   }
 }
 
-$document.addEventListener('change', function (mediaQuery) {
+$document.addEventListener("change", function (mediaQuery) {
   reorderElements(mediaQuery);
 });
 
-
 // fetch
 
-const sectionContainer = document.getElementById('section-container');
+const sectionContainer = document.getElementById("section-container");
 
 function createSections(data) {
-  sectionContainer.innerHTML = '';
+  sectionContainer.innerHTML = "";
 
   for (let i = 0; i < data.length; i++) {
     const sectionData = data[i];
 
-    if (sectionData.type === 'grid-col2_left_') {
+    if (sectionData.type === "grid-col2_left_") {
       const sectionHTML = createCol2LeftSection(sectionData);
-      sectionContainer.insertAdjacentHTML('beforeend', sectionHTML);
-
-    } else if (sectionData.type === 'grid-col4') {
-      
-        const sectionHTML = createCol4Section(sectionData);
-        sectionContainer.insertAdjacentHTML('beforeend', sectionHTML);
-      }
+      sectionContainer.insertAdjacentHTML("beforeend", sectionHTML);
+    } else if (sectionData.type === "grid-col4") {
+      const sectionHTML = createCol4Section(sectionData);
+      sectionContainer.insertAdjacentHTML("beforeend", sectionHTML);
     }
   }
-
+}
 
 function createCol2LeftSection(data) {
   const imageHtml = `
@@ -113,7 +106,7 @@ function createCol2LeftSection(data) {
 
   const introHtml = `
     <div class="intro">
-      <p>${data.introText || ''}</p>
+      <p>${data.introText || ""}</p>
     </div>
   `;
 
@@ -126,26 +119,40 @@ function createCol2LeftSection(data) {
 }
 
 function createCol4Section(data) {
-  let membersHTML = '';
+  let membersHTML = "";
   for (let i = 0; i < data.members.length; i++) {
     membersHTML += createCol4MemberSection(data.members[i]);
   }
-  
-  return '<section class="member grid grid-col4">' + membersHTML + '</section>';
+
+  return '<section class="member grid grid-col4">' + membersHTML + "</section>";
 }
 
 function createCol4MemberSection(member) {
-  const imageHtml = '<div class="square"><img src="' + member.imageURL + '" alt="' + member.altText + '"></div>';
-  const memberTextHtml = '<div class="member-text"><h3>' + (member.name || '') + '</h3><p>' + member.gender + ' ' + member.city + '<br>' + member.role + '</p></div>';
-  
+  const imageHtml =
+    '<div class="square"><img src="' +
+    member.imageURL +
+    '" alt="' +
+    member.altText +
+    '"></div>';
+  const memberTextHtml =
+    '<div class="member-text"><h3>' +
+    (member.name || "") +
+    "</h3><p>" +
+    member.gender +
+    " " +
+    member.city +
+    "<br>" +
+    member.role +
+    "</p></div>";
+
   return imageHtml + memberTextHtml;
 }
 
 function fetchDataAboutUs() {
-  fetch('/data/about_us.json')
+  fetch("./data/about_us.json")
     .then(function (response) {
       if (!response.ok) {
-        throw new Error('Could not fetch data');
+        throw new Error("Could not fetch data");
       }
       return response.json();
     })
@@ -158,7 +165,3 @@ function fetchDataAboutUs() {
 }
 
 fetchDataAboutUs();
-
-
-
-

@@ -1,12 +1,11 @@
-import '/js/components/header.js';
-import '/js/components/footer.js';
-import '/js/components/socials.js';
-
+import "./components/header.js";
+import "./components/footer.js";
+import "./components/socials.js";
 
 function placeImage(image) {
-  const $imageBackground = document.getElementById('get-photo');
-  const $imageBackgroundElem = $imageBackground.querySelectorAll('img');
-  
+  const $imageBackground = document.getElementById("get-photo");
+  const $imageBackgroundElem = $imageBackground.querySelectorAll("img");
+
   for (let i = 0; i < $imageBackground.children.length; i++) {
     let ObjectImg = image[i];
     let curObjectImg = ObjectImg.imageURL;
@@ -15,17 +14,19 @@ function placeImage(image) {
 }
 
 function fetchImage() {
-  fetch('/data/photo.json')
-    .then(function(response) {
+  fetch("./data/photo.json")
+    .then(function (response) {
       if (!response.ok) {
-        throw new Error('Could not fetch texts');
+        throw new Error("Could not fetch texts");
       }
       return response.json();
-    }).then(function(image) {
-    placeImage(image);
-  }).catch(function(error) {
-    console.error(error);
-  })
+    })
+    .then(function (image) {
+      placeImage(image);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 }
 
 fetchImage();

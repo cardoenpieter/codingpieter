@@ -1,6 +1,6 @@
-import '/js/components/header.js';
-import '/js/components/footer.js';
-import '/js/components/socials.js';
+import "./components/header.js";
+import "./components/footer.js";
+import "./components/socials.js";
 
 // function writeTexts(texts) {
 //   const $title = document.getElementById('title');
@@ -12,18 +12,20 @@ import '/js/components/socials.js';
 // }
 
 function fetchTexts() {
-  fetch('/data/index.json')
-    .then(function(response) {
+  fetch("./data/index.json")
+    .then(function (response) {
       if (!response.ok) {
-        throw new Error('Could not fetch texts');
+        throw new Error("Could not fetch texts");
       }
 
       return response.json();
-    }).then(function(texts) {
-    writeTexts(texts);
-  }).catch(function(error) {
-    console.error(error);
-  })
+    })
+    .then(function (texts) {
+      writeTexts(texts);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 }
 
 fetchTexts();

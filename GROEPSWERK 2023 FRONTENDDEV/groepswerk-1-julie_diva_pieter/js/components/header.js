@@ -7,7 +7,7 @@ function writeTexts(texts) {
 }
 
 function fetchTexts() {
-  fetch("/data/index.json")
+  fetch("./data/index.json")
     .then(function (response) {
       if (!response.ok) {
         throw new Error("Could not fetch texts");
@@ -88,7 +88,7 @@ function placeNewsletterNav() {
 placeNewsletterNav();
 
 function fetchMenuNav() {
-  fetch("/data/index.json")
+  fetch("./data/index.json")
     .then(function (response) {
       if (!response.ok) {
         throw new Error("Could not fetch texts");

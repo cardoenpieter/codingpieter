@@ -1,7 +1,6 @@
-import '/js/components/header.js';
-import '/js/components/footer.js';
-import '/js/components/socials.js';
-
+import "./components/header.js";
+import "./components/footer.js";
+import "./components/socials.js";
 
 let upcomingInOrder = new Array();
 let pastInOrder = new Array();
@@ -10,73 +9,75 @@ let fromDatabase = new Array();
 const $containerUpcoming = document.getElementById("tourdates_upcoming");
 const $containerPast = document.getElementById("tourdates_past");
 
-function datesInOrder (){
+function datesInOrder() {
   const today = new Date();
   let listConcertDate;
 
   for (let i = 0; i < fromDatabase.length; i++) {
     let concertDate = new Date(fromDatabase[i].datum);
 
-
     if (concertDate >= today) {
-      if(upcomingInOrder.length === 0) {
+      if (upcomingInOrder.length === 0) {
         upcomingInOrder.push(fromDatabase[i]);
       } else {
-      for (let j = 0; j < upcomingInOrder.length; j++) {
-        listConcertDate = new Date(upcomingInOrder[j].datum);
-        if (concertDate < listConcertDate) {
-          upcomingInOrder.splice(j, 0, fromDatabase[i]);
-          break;
-        } 
-        else {
-          if (j === upcomingInOrder.length - 1) {
-            upcomingInOrder.push(fromDatabase[i]);
+        for (let j = 0; j < upcomingInOrder.length; j++) {
+          listConcertDate = new Date(upcomingInOrder[j].datum);
+          if (concertDate < listConcertDate) {
+            upcomingInOrder.splice(j, 0, fromDatabase[i]);
             break;
+          } else {
+            if (j === upcomingInOrder.length - 1) {
+              upcomingInOrder.push(fromDatabase[i]);
+              break;
+            }
           }
         }
       }
-    }
     } else {
-      if(pastInOrder.length === 0) {
+      if (pastInOrder.length === 0) {
         pastInOrder.push(fromDatabase[i]);
       } else {
-      for (let k = 0; k < pastInOrder.length; k++) {
-        listConcertDate = new Date(fromDatabase[k].datum);
-        if (concertDate > listConcertDate) {
-          pastInOrder.splice(k, 0, fromDatabase[i]);
-          break;
-        }
-        else {
-          if (k === pastInOrder.length - 1) {
-            pastInOrder.push(fromDatabase[i]);
+        for (let k = 0; k < pastInOrder.length; k++) {
+          listConcertDate = new Date(fromDatabase[k].datum);
+          if (concertDate > listConcertDate) {
+            pastInOrder.splice(k, 0, fromDatabase[i]);
             break;
+          } else {
+            if (k === pastInOrder.length - 1) {
+              pastInOrder.push(fromDatabase[i]);
+              break;
+            }
           }
         }
       }
-    }
     }
   }
 }
 
-
 function upcomingHTML() {
   let upcomingHTML = "";
 
-  for(let i=0; i<upcomingInOrder.length; i++) {
+  for (let i = 0; i < upcomingInOrder.length; i++) {
     let concertVenue = upcomingInOrder[i].locatie;
-    let concertCity = upcomingInOrder[i].stad
-    let concertLocation = concertCity.toUpperCase() + ', ' + upcomingInOrder[i].landcode;
+    let concertCity = upcomingInOrder[i].stad;
+    let concertLocation =
+      concertCity.toUpperCase() + ", " + upcomingInOrder[i].landcode;
     let ticketLink = upcomingInOrder[i].tickets;
     let uitverkocht;
     let concertDate = new Date(upcomingInOrder[i].datum);
-    let dateHTML = concertDate.getDate() + "/" + concertDate.getMonth() + "/" + concertDate.getFullYear();
+    let dateHTML =
+      concertDate.getDate() +
+      "/" +
+      concertDate.getMonth() +
+      "/" +
+      concertDate.getFullYear();
     let weekDayHTML = concertDate.getDay();
 
     switch (weekDayHTML) {
       case 0:
         weekDayHTML = "Sunday";
         break;
-      case 1: 
+      case 1:
         weekDayHTML = "Monday";
         break;
       case 2:
@@ -85,7 +86,7 @@ function upcomingHTML() {
       case 3:
         weekDayHTML = "Wednesday";
         break;
-      case 4: 
+      case 4:
         weekDayHTML = "Thursday";
         break;
       case 5:
@@ -97,9 +98,9 @@ function upcomingHTML() {
     }
 
     if (upcomingInOrder[i].uitverkocht === true) {
-      uitverkocht = 'uitverkocht';
+      uitverkocht = "uitverkocht";
     } else {
-      uitverkocht = 'niet_uitverkocht';
+      uitverkocht = "niet_uitverkocht";
     }
 
     let htmlToAdd = `
@@ -117,33 +118,37 @@ function upcomingHTML() {
               <p class="sold_out ${uitverkocht}">SOLD OUT</p>
           </div>
         </article>
-        <br>`
-    ;
-
-    upcomingHTML+=htmlToAdd;
+        <br>`;
+    upcomingHTML += htmlToAdd;
   }
-  
-  $containerUpcoming.insertAdjacentHTML('beforeend', upcomingHTML);
+
+  $containerUpcoming.insertAdjacentHTML("beforeend", upcomingHTML);
 }
 
 function pastHTML() {
   let pastHTML = "";
 
-  for(let i=0; i<pastInOrder.length; i++) {
+  for (let i = 0; i < pastInOrder.length; i++) {
     let concertVenue = pastInOrder[i].locatie;
     let concertCity = pastInOrder[i].stad;
-    let concertLocation = concertCity.toUpperCase() + ', ' + pastInOrder[i].landcode;
+    let concertLocation =
+      concertCity.toUpperCase() + ", " + pastInOrder[i].landcode;
     let ticketLink = pastInOrder[i].tickets;
-    let uitverkocht = 'niet_uitverkocht';
+    let uitverkocht = "niet_uitverkocht";
     let concertDate = new Date(pastInOrder[i].datum);
-    let dateHTML = concertDate.getDate() + "/" + concertDate.getMonth() + "/" + concertDate.getFullYear();
+    let dateHTML =
+      concertDate.getDate() +
+      "/" +
+      concertDate.getMonth() +
+      "/" +
+      concertDate.getFullYear();
     let weekDayHTML = concertDate.getDay();
 
     switch (weekDayHTML) {
       case 0:
         weekDayHTML = "Sunday";
         break;
-      case 1: 
+      case 1:
         weekDayHTML = "Monday";
         break;
       case 2:
@@ -152,7 +157,7 @@ function pastHTML() {
       case 3:
         weekDayHTML = "Wednesday";
         break;
-      case 4: 
+      case 4:
         weekDayHTML = "Thursday";
         break;
       case 5:
@@ -178,42 +183,39 @@ function pastHTML() {
               <p class="sold_out ${uitverkocht}">SOLD OUT</p>
           </div>
         </article>
-        <br>`
-    ;
-
-    pastHTML+=htmlToAdd;
+        <br>`;
+    pastHTML += htmlToAdd;
   }
-  
-  $containerPast.insertAdjacentHTML('beforeend', pastHTML);
+
+  $containerPast.insertAdjacentHTML("beforeend", pastHTML);
 }
 
-
 function writeTexts(texts) {
-  for(let i=0; i < texts.length; i++) {
+  for (let i = 0; i < texts.length; i++) {
     fromDatabase.push(texts[i]);
   }
-  
+
   datesInOrder();
 
   upcomingHTML();
   pastHTML();
-
 }
 
-
 function fetchTexts() {
-  fetch('/data/tour_dates.json')
-    .then(function(response) {
+  fetch("./data/tour_dates.json")
+    .then(function (response) {
       if (!response.ok) {
-        throw new Error('Could not fetch texts');
+        throw new Error("Could not fetch texts");
       }
 
       return response.json();
-    }).then(function(texts) {
-    writeTexts(texts);
-  }).catch(function(error) {
-    console.error(error);
-  })
+    })
+    .then(function (texts) {
+      writeTexts(texts);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 }
 
 fetchTexts();
