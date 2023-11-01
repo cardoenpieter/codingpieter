@@ -6,6 +6,7 @@ Your private key
 */
 const charactersElement = document.getElementById("characters");
 const seriesElement = document.getElementById("series");
+const chosenCharacter = document.getElementById("chosen-character");
 function getAllCharacters() {
   fetch(
     "https://gateway.marvel.com:443/v1/public/characters?apikey=dec9cdce90864edae689b29660018520",
@@ -34,13 +35,18 @@ function getName(event) {
     //console.log(name);
     const li = document.createElement("li");
     li.innerText = name;
-    li.style = "cursor:pointer";
     li.addEventListener("click", () => {
       const id = character.id;
       getSeries(id);
+      removeAll();
+      chosenCharacter.innerHTML = `You chose ${name}`;
     });
     return charactersElement.appendChild(li);
   });
+}
+
+function removeAll() {
+  seriesElement.innerHTML = "";
 }
 
 function getSeries(id) {
@@ -66,11 +72,3 @@ function getSeriesId(event) {
     return seriesElement.appendChild(li);
   });
 }
-
-/*
-li.addEventListener("click", function () {
-  const id = character.id;
-  console.log("click id", id);
-  return id;
-});
-*/
