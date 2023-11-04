@@ -80,9 +80,9 @@ h2 {
     grid-template-columns: 1fr 1fr;
 }
 
-.grid-col3
+.grid-col4
 {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 
