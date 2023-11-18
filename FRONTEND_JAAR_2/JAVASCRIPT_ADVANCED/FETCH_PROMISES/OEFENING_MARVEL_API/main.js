@@ -108,9 +108,7 @@ function previousPage() {
   console.log(page);
 
   if (page === 0) {
-    //
-    console.log(page);
-    //previousButton.remove();
+    page = 1;
     return;
   } else {
     const offset = (page - 1) * itemsPerPage;
