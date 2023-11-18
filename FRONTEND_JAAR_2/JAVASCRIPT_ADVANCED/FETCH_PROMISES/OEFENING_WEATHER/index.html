@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="main.js" defer></script>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" id="inputfield" placeholder="Fill in any city in the world.">
-    <input type="submit" value="Submit" id="submit">  
+    <div id="input-container">
+        <input type="text" id="inputfield" placeholder="Type your city" onclick="resetField()">
+        <input type="submit" value="Search" id="submit">  
+    </div> 
     <div id="city-name"></div>
     <ul id="weather-data"></ul>
+    <img src="" alt="">
+    <ul id="temperature"></ul>
 </body>
 </html>
