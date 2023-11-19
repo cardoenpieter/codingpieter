@@ -4,6 +4,7 @@ const cityNameElem = document.getElementById("city-name");
 const weatherDataElem = document.getElementById("weather-data");
 const image = document.querySelector("img");
 const temperatureElem = document.getElementById("temperature");
+const forecast = document.getElementById("5day-forecasat");
 
 function getLocation() {
   //console.log(inputField.value);
@@ -19,6 +20,7 @@ function getLocation() {
   )
     .then((res) => res.json())
     .then(coordinatesCity);
+  //.then(coordinates5DayForeCast);
 }
 
 function coordinatesCity(data) {
@@ -64,13 +66,35 @@ function displayDataOnPage(data) {
   const liElem1 = document.createElement("li");
   const liElem2 = document.createElement("li");
   const liElem3 = document.createElement("li");
-  liElem1.innerHTML = currentTemp + "°C";
-  liElem2.innerHTML = "Max " + maxTemp + "°C";
-  liElem3.innerHTML = "Min " + minTemp + "°C";
+  liElem1.innerHTML = Math.round(currentTemp) + "°C";
+  liElem2.innerHTML = "Max " + Math.round(maxTemp) + "°C";
+  liElem3.innerHTML = "Min " + Math.round(minTemp) + "°C";
   temperatureElem.appendChild(liElem1);
   temperatureElem.appendChild(liElem2);
   temperatureElem.appendChild(liElem3);
 }
+
+function coordinates5DayForeCast() {
+  //const coordinatesLon = data.city.coord.lon;
+  //console.log(coordinatesLon);
+  //const coordinatesLat = data.city.coord.lat;
+  //const test = Object.values();
+  //console.log(test);
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&units=metric&appid=63bf253d53476479b554f6a246a9c58e`,
+    {
+      method: "GET",
+    }
+  )
+    .then((res) => res.json())
+    .then(console.log)
+    .then((res) => {
+      res.forEach((datas) => {
+        console.log(datas.city);
+      });
+    });
+}
+coordinates5DayForeCast();
 
 function getIcons(icon) {
   //console.log("icon", icon);

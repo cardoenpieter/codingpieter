@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div id="input-container">
         <input type="text" id="inputfield" placeholder="Type your city" onclick="resetField()">
         <input type="submit" value="Search" id="submit">  
     </div> 
-    <div id="city-name"></div>
-    <ul id="weather-data"></ul>
-    <img src="" alt="">
-    <ul id="temperature"></ul>
+    <div class="column">
+        <div>
+            <h1>Current weather</h1>
+            <div id="city-name"></div>
+            <ul id="weather-data"></ul>
+            <img src="" alt="">
+            <ul id="temperature"></ul>
+        </div>
+        <div id="5day-forecast-container">
+            <h2>5-day forecast</h2>
+            <ul id="5day-forecast"></ul>
+        </div>
+    </div>
 </body>
 </html>

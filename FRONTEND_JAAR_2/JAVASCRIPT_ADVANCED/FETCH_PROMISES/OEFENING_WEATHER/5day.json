@@ -1,0 +1,18 @@
+{
+    "cod": "200",
+    "message": 0,
+    "cnt": 40,
+    "city": {
+      "id": 2803448,
+      "name": "Aalst",
+      "coord": {
+        "lat": 50.9383,
+        "lon": 4.0392
+      },
+      "country": "BE",
+      "population": 77534,
+      "timezone": 3600,
+      "sunrise": 1700377553,
+      "sunset": 1700409162
+    }
+  }
