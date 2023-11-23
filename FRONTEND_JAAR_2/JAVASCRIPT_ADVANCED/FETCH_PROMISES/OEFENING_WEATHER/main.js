@@ -4,7 +4,13 @@ const cityNameElem = document.getElementById("city-name");
 const weatherDataElem = document.getElementById("weather-data");
 const image = document.querySelector("img");
 const temperatureElem = document.getElementById("temperature");
+const windElem = document.getElementById("wind");
+const feelsLikeElem = document.getElementById("feels-like");
+const humidityElem = document.getElementById("humidity");
+const pressureElem = document.getElementById("pressure");
 const forecast = document.getElementById("5day-forecasat");
+const currentWeather = document.getElementsByClassName(".current-weather");
+const chart = document.getElementById("myChart");
 
 function getLocation() {
   //console.log(inputField.value);
@@ -19,11 +25,16 @@ function getLocation() {
     }
   )
     .then((res) => res.json())
-    .then(coordinatesCity);
-  //.then(coordinates5DayForeCast);
+    .then((data) =>
+      Promise.all([
+        resetField(),
+        weatherCity(data),
+        coordinates5DayForeCast(data),
+      ])
+    );
 }
 
-function coordinatesCity(data) {
+function weatherCity(data) {
   console.log("city", data);
   //display cityname,country and date
   let currentDate = new Date();
@@ -33,6 +44,7 @@ function coordinatesCity(data) {
   pElem.innerHTML =
     cityname + ", " + country + ", " + currentDate.toDateString();
   cityNameElem.appendChild(pElem);
+
   //get lon and lat
   const coordinatesLon = data[0].lon;
   const coordinatesLat = data[0].lat;
@@ -61,40 +73,78 @@ function displayDataOnPage(data) {
   //display temperature
   const dataTemperature = data.main;
   const currentTemp = dataTemperature.temp;
-  const maxTemp = dataTemperature.temp_max;
-  const minTemp = dataTemperature.temp_min;
   const liElem1 = document.createElement("li");
-  const liElem2 = document.createElement("li");
-  const liElem3 = document.createElement("li");
   liElem1.innerHTML = Math.round(currentTemp) + "°C";
-  liElem2.innerHTML = "Max " + Math.round(maxTemp) + "°C";
-  liElem3.innerHTML = "Min " + Math.round(minTemp) + "°C";
   temperatureElem.appendChild(liElem1);
-  temperatureElem.appendChild(liElem2);
-  temperatureElem.appendChild(liElem3);
+  //display wind
+  const currentWind = data.wind.speed;
+  const liElem2 = document.createElement("li");
+  liElem2.innerHTML = "Wind: " + Math.round(currentWind) + " km/h";
+  windElem.appendChild(liElem2);
+  //display feels like
+  const currentFeelsLike = dataTemperature.feels_like;
+  const liElem3 = document.createElement("li");
+  liElem3.innerHTML = "Feels like: " + Math.round(currentFeelsLike) + " °C";
+  feelsLikeElem.appendChild(liElem3);
+  //display humidity
+  const currentHumidity = dataTemperature.humidity;
+  const liElem4 = document.createElement("li");
+  liElem4.innerHTML = "Humidity: " + currentHumidity + " %";
+  humidityElem.appendChild(liElem4);
+  //display pressure
+  const currentPressure = dataTemperature.pressure;
+  const liElem5 = document.createElement("li");
+  liElem5.innerHTML = "Pressure: " + currentPressure + " hPa";
+  pressureElem.appendChild(liElem5);
 }
-
-function coordinates5DayForeCast() {
-  //const coordinatesLon = data.city.coord.lon;
-  //console.log(coordinatesLon);
-  //const coordinatesLat = data.city.coord.lat;
-  //const test = Object.values();
-  //console.log(test);
-  fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&units=metric&appid=63bf253d53476479b554f6a246a9c58e`,
+let chartDisplay; //lege variabele aanmaken die moet herinitialiseren, dus geen const!
+function coordinates5DayForeCast(data) {
+  const coordinatesLon = data[0].lon;
+  const coordinatesLat = data[0].lat;
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinatesLat}&lon=${coordinatesLon}&units=metric&appid=63bf253d53476479b554f6a246a9c58e`,
     {
       method: "GET",
     }
   )
     .then((res) => res.json())
-    .then(console.log)
     .then((res) => {
-      res.forEach((datas) => {
-        console.log(datas.city);
-      });
+      console.log(res);
+      if (chartDisplay) chartDisplay.destroy(); //bij een eerste lege variabele zal hij niets callen,
+      //pas wanneer er een chart in zit, zal hij destroyen
+      chartDisplay = displayChart(res); //de variabele invullen met de functie
     });
 }
-coordinates5DayForeCast();
+
+function displayChart(data) {
+  console.log("displaychart", data.list);
+  const dataList = data.list;
+  const chartTempAndDate = new Chart(chart, {
+    type: "line",
+    data: {
+      labels: dataList.map((xline) => {
+        return xline.dt_txt;
+      }),
+      datasets: [
+        {
+          label: "# of Votes",
+          data: dataList.map((yline) => {
+            return yline.main.temp;
+          }),
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+  return chartTempAndDate;
+}
 
 function getIcons(icon) {
   //console.log("icon", icon);
@@ -111,6 +161,14 @@ function getIcons(icon) {
 //reset inputfield by onclick in the input tag
 function resetField() {
   inputField.value = "";
+  cityNameElem.innerHTML = "";
+  weatherDataElem.innerHTML = "";
+  image.innerHTML = "";
+  temperatureElem.innerHTML = "";
+  windElem.innerHTML = "";
+  feelsLikeElem.innerHTML = "";
+  humidityElem.innerHTML = "";
+  pressureElem.innerHTML = "";
 }
 
 submit.addEventListener("click", getLocation);

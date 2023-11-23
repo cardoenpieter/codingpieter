@@ -32,8 +32,67 @@ body
 
 .column
 {
-    grid-template-columns:minmax(0,5fr) minmax(0,4fr);
+    grid-template-columns:minmax(0,3fr) minmax(0,4fr);
     display: grid;
     gap: 2rem;
     justify-items: center;
+}
+
+.current-weather
+{
+    background-color: rgb(11, 128, 245);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+    color: #fff;
+}
+
+#city-name 
+{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+#weather-data
+{
+    font-weight: 400;
+    margin: 0.2rem 0;
+    list-style-type:none;
+}
+
+#temperature
+{
+    list-style-type: none;
+    font-weight: 600;
+    width: auto;
+    font-size: 80px;
+    margin: 10px 0;
+}
+
+.weather-icon
+{
+    width: 120px;
+    margin: -20px;
+}
+
+.details
+{
+    margin-top: 1rem;
+}
+
+#wind,
+#feels-like,
+#humidity,
+#pressure
+{
+    list-style-type: none;
+    line-height: 1.2;
+}
+
+h1
+{
+    text-align: center;
 }

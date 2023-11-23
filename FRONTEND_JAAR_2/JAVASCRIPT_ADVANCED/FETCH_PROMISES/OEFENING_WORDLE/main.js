@@ -8,10 +8,29 @@ const res = await fetch("https://words.dev-apis.com/validate-word", {
 });
 const { validWord } = await res.json();
 */
-function getWordOfTheDay(event) {
-  console.log(event);
+
+const ANSWER_LENGTH = 5;
+const ROUNDS = 6;
+const letters = document.querySelectorAll(".scoreboard-letter");
+const loadingDiv = document.querySelector(".info-bar");
+
+function getWordOfTheDay() {
   fetch(`https://words.dev-apis.com/word-of-the-day`, {
     method: "GET",
-  }).then((res) => res.json(console.log(res)));
+  })
+    .then((res) => res.json())
+    .then(console.log);
 }
-getWordOfTheDay();
+
+function lettersInScoreboard(event) {
+  const target = event.target;
+  console.log(target);
+  //const selectedLetter = target.innerText;
+}
+
+function init() {
+  getWordOfTheDay();
+}
+
+letters.addEventListener("keydown", lettersInScoreboard);
+init();
