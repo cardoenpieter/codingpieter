@@ -127,7 +127,7 @@ function displayChart(data) {
       }),
       datasets: [
         {
-          label: "# of Votes",
+          label: "Temp-line",
           data: dataList.map((yline) => {
             return yline.main.temp;
           }),
