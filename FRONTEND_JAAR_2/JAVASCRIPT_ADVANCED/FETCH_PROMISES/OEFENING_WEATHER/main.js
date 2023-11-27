@@ -123,24 +123,34 @@ function displayChart(data) {
     type: "line",
     data: {
       labels: dataList.map((xline) => {
-        return xline.dt_txt;
+        const timeDateParts = xline.dt_txt.split(" ");
+        const timePart = timeDateParts[1];
+        const datePart = timeDateParts[0];
+        if (timePart === "12:00:00") {
+          console.log(timePart + datePart);
+          return datePart;
+        }
       }),
       datasets: [
         {
           label: "Temp-line",
           data: dataList.map((yline) => {
-            return yline.main.temp;
+            const timeDateParts = yline.dt_txt.split(" ");
+            const timePart = timeDateParts[1];
+            const datePart = timeDateParts[0];
+            const tempParameter = yline.main.temp;
+            if (timePart === "12:00:00") {
+              console.log(
+                "temp controle",
+                timePart + " " + datePart + " " + tempParameter
+              );
+              return Math.round(tempParameter);
+            }
           }),
-          borderWidth: 1,
+          borderWidth: 2,
+          spanGaps: true,
         },
       ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
     },
   });
   return chartTempAndDate;
