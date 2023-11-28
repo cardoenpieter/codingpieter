@@ -23,8 +23,7 @@ function getWordOfTheDay() {
 }
 
 function lettersInScoreboard(event) {
-  const target = event.target;
-  console.log(target);
+  console.log(event.value);
   //const selectedLetter = target.innerText;
 }
 
@@ -32,5 +31,9 @@ function init() {
   getWordOfTheDay();
 }
 
-letters.addEventListener("keydown", lettersInScoreboard);
+letters.forEach((letter) => {
+  letter.addEventListener("keydown", lettersInScoreboard);
+  console.log(letter);
+});
+
 init();

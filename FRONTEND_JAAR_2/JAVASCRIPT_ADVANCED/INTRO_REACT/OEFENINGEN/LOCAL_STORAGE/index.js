@@ -1,34 +1,3 @@
-// function removeToDo(event) {
-//   const article = event.target.parentElement;
-//   article.remove();
-// }
-
-// function onSubmit(event) {
-//   event.preventDefault();
-//   const input = document.querySelector("[name=item]");
-//   const value = input.value;
-
-//   if (!value) return window.alert("Please enter a record.");
-
-//   const todo = `
-//     <article class="todo">
-//         <input type="checkbox" name="" id="">
-//         <label for="">${value}</label>
-//         <button onclick="removeToDo(event)">❌</button>
-//     </article>`;
-
-//   itemsList.innerHTML = todo;
-// }
-
-// window.addEventListener("load", function () {
-//   console.log("app.js loaded");
-
-//   //get form
-//   const form = document.querySelector("form");
-
-//   form.addEventListener("submit", onSubmit);
-// });
-
 //oplossing
 /**** 
 function addItem(e) {
@@ -61,7 +30,8 @@ function populateList(plates = [], platesList) {
     .join("");
 }
 
-function toggleDone(e) {
+//van wanneer er een toggle gebeurt ook in local storage steken
+function toggleDone(e) { 
   if (!e.target.matches("input")) return; // skip this unless it's an input
   const el = e.target;
   const index = el.dataset.index;
@@ -78,14 +48,14 @@ populateList(items, itemsList); //direct uitvoeren wnn pagina opstart
 
 const addItems = document.querySelector(".add-items");
 const itemsList = document.querySelector(".plates");
-const items = JSON.parse(localStorage.getItem("item")) || [];
+const items = JSON.parse(localStorage.getItem("item")) || []; //json.parse alles in local storage is een string, de lege array mag geparsd worden als er een lege string is
 
 function addItem(event) {
   event.preventDefault();
   //grab the value from the input field
   //this is een referentie van op welk html element je werkt en verwijst er naar
   //this is in dit geval event.target
-  const text = this.querySelector("[name=item]").value;
+  const text = this.querySelector("[name=item]").value; //query op een attribuut in html
   const item = {
     text,
     done: false,
@@ -93,7 +63,7 @@ function addItem(event) {
   items.push(item);
   localStorage.setItem("item", JSON.stringify(items));
   populateList(items, itemsList);
-  this.reset();
+  this.reset(); //inputfield gaat leeg zijn
 }
 
 function populateList(plates = [], platesList) {
@@ -114,6 +84,17 @@ function populateList(plates = [], platesList) {
     .join("");
 }
 
-addItems.addEventListener("submit", addItem); //additem is een callbackfunctie
+//van wanneer er een toggle gebeurt ook in local storage steken
+function toggleDone(e) {
+  if (!e.target.matches("input")) return; // skip this unless it's an input
+  const el = e.target;
+  const index = el.dataset.index;
+  items[index].done = !items[index].done;
+  localStorage.setItem("items", JSON.stringify(items));
+  populateList(items, itemsList);
+}
 
-populateList(items, itemsList);
+addItems.addEventListener("submit", addItem); //additem is een callbackfunctie
+itemsList.addEventListener("click", toggleDone);
+
+populateList(items, itemsList); //direct uitvoeren wnn pagina opstart
