@@ -45,3 +45,5 @@ function previousPage() {
   if (offset <= 0) offset = 0;
   getEmoji();
 }
+
+//pieter
