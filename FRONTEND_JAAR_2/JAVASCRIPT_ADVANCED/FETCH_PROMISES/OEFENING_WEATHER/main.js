@@ -182,3 +182,5 @@ function resetField() {
 }
 
 submit.addEventListener("click", getLocation);
+
+//dinsdag
