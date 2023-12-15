@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "legos",
+  "info": {
+    "singularName": "lego",
+    "pluralName": "legos",
+    "displayName": "Lego",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "theme": {
+      "type": "string",
+      "required": true
+    },
+    "model": {
+      "type": "string"
+    },
+    "item": {
+      "type": "biginteger",
+      "required": false
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "available": {
+      "type": "date",
+      "default": "2023-12-25"
+    },
+    "picture": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

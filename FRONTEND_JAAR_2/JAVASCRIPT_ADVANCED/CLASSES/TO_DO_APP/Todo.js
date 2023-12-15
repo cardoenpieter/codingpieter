@@ -19,7 +19,7 @@ class Todo {
   render() {
     const list = document.getElementById("tasks");
     const template = this.template();
-    list.innerHTML += template;
+    list.innerHTML += template; //deze this.template() wordt er gewoon bij geduwd om te kunnen afbeelden in de browser
   }
 
   /**
