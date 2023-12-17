@@ -1,5 +1,7 @@
 const addItemsElem = document.querySelector(".add-items"); //queryselector werkt met alles, queryselectorall returnt array van classes
 const button = document.querySelector(".button-additem");
+const todosElem = document.querySelector(".todos-inprogress");
+const todosDoneElem = document.querySelector(".todos-done");
 
 //fetch GET om de data in op te slaan
 function getToDo() {
@@ -7,9 +9,24 @@ function getToDo() {
     method: "GET",
   })
     .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-    });
+    .then(displayItems);
+}
+
+//function om items te displayen op de browser
+function displayItems(items) {
+  console.log("items", items);
+  todosElem.innerHTML = items.todos
+    .map((todo) => {
+      const isChecked = todo.state ? "in_progress" : "done";
+      const id = todo.id;
+      return `
+            <li>
+              <input type="checkbox" id=${id} name="item" ${isChecked} />
+              <label for=${id}>${todo.name}</label>
+            </li>
+            `;
+    })
+    .join("");
 }
 
 //fetch POST om data te creeren en naar toe te sturen
@@ -25,6 +42,7 @@ function createItem(data) {
 
 //bij click op button: input meegeven aan createItem en .then wegens promise
 function addItems() {
+  //event.preventDefault();
   //name required
   //waarde uit de input halen
   const name = document.querySelector("[name=item]").value;
@@ -38,18 +56,32 @@ function addItems() {
 }
 
 //fetch POST om data te updaten zoals checkbox afvinken,state: Enum -> "in_progress" or "done"
-function updateItem() {
-  return fetch(`http://localhost:3000/todo/update`, {
+function updateItem(id, state) {
+  console.log(id, state);
+  return fetch(`http://localhost:3000/todo/update/${id}`, {
     method: "POST",
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-    });
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id, state }),
+  });
 }
+
+function doneItems(items) {}
+
+// function doneItems(id) {
+//   console.log("itemsDone", id);
+//   id.todos.map((todo) => {
+//     console.log(todo);
+//   });
+//   updateItem(id).then(() => {
+//     getToDo();
+//   });
+// }
 
 function init() {
   getToDo();
+  updateItem();
 }
 init();
 
