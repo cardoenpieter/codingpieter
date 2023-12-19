@@ -9,7 +9,8 @@ function getToDo() {
     method: "GET",
   })
     .then((res) => res.json())
-    .then(displayItems);
+    .then(displayItems)
+    .then(updateItem);
 }
 
 //function om items te displayen op de browser
@@ -67,21 +68,19 @@ function updateItem(id, state) {
   });
 }
 
-function doneItems(items) {}
-
-// function doneItems(id) {
-//   console.log("itemsDone", id);
-//   id.todos.map((todo) => {
-//     console.log(todo);
-//   });
-//   updateItem(id).then(() => {
-//     getToDo();
-//   });
-// }
+function changeItems(items) {
+  console.log("changeitems", items);
+  return items.todos.map((todo) => {
+    const id = todo.id;
+    const state = todo.state;
+    updateItem(id, state).then(() => {
+      getToDo();
+    });
+  });
+}
 
 function init() {
   getToDo();
-  updateItem();
 }
 init();
 
