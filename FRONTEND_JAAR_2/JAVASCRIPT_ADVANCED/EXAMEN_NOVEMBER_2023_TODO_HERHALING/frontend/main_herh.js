@@ -9,8 +9,7 @@ function getToDo() {
     method: "GET",
   })
     .then((res) => res.json())
-    .then(displayItems)
-    .then(updateItem);
+    .then(displayItems);
 }
 
 //function om items te displayen op de browser
@@ -20,14 +19,25 @@ function displayItems(items) {
     .map((todo) => {
       const isChecked = todo.state ? "in_progress" : "done";
       const id = todo.id;
+      //li returen zoals de marvel api
+      // const li = document.createElement("li");
+      //   li.innerText = name;
+      //   li.addEventListener("click", () => {
+      //     const id = character.id;
+      //     getSeries(id);
+      //     removeAll();
+      //     chosenCharacter.innerHTML = `You chose ${name}`;
+      //   });
+      //   return charactersElement.appendChild(li);
       return `
             <li>
-              <input type="checkbox" id=${id} name="item" ${isChecked} />
+              <input  class="list-items" type="checkbox" id=${id} name="item" ${isChecked} />
               <label for=${id}>${todo.name}</label>
             </li>
             `;
     })
     .join("");
+  clickedItems();
 }
 
 //fetch POST om data te creeren en naar toe te sturen
@@ -57,7 +67,7 @@ function addItems() {
 }
 
 //fetch POST om data te updaten zoals checkbox afvinken,state: Enum -> "in_progress" or "done"
-function updateItem(id, state) {
+function updateItem({ id, state }) {
   console.log(id, state);
   return fetch(`http://localhost:3000/todo/update/${id}`, {
     method: "POST",
@@ -68,15 +78,10 @@ function updateItem(id, state) {
   });
 }
 
-function changeItems(items) {
-  console.log("changeitems", items);
-  return items.todos.map((todo) => {
-    const id = todo.id;
-    const state = todo.state;
-    updateItem(id, state).then(() => {
-      getToDo();
-    });
-  });
+function clickedItems(id) {
+  const checkboxItem = document.querySelectorAll(".list-items");
+  console.log(checkboxItem);
+  checkboxItem.addEventListener;
 }
 
 function init() {
@@ -85,3 +90,30 @@ function init() {
 init();
 
 button.addEventListener("click", addItems);
+/*
+const deleteButtons = document.querySelectorAll(".delete");
+      deleteButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const id = event.target.dataset.id;
+          TodoClient.delete(id).then(() => getTodos());
+        });
+      });
+    });*/
+/*
+    function getName(event) {
+      const allCharacters = event.data.results;
+      console.log("allcharac", allCharacters);
+    
+      return allCharacters.forEach((character) => {
+        const name = character.name;
+        //console.log(name);
+        const li = document.createElement("li");
+        li.innerText = name;
+        li.addEventListener("click", () => {
+          const id = character.id;
+          getSeries(id);
+          removeAll();
+          chosenCharacter.innerHTML = `You chose ${name}`;
+        });
+        return charactersElement.appendChild(li);
+      });*/
