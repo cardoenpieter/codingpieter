@@ -10,3 +10,12 @@ body {
 .todos-inprogress li {
     list-style-type:none;
 }
+
+.list-items-done {
+    text-decoration: line-through;
+    
+}
+
+.todos-done li {
+    list-style-type: none;
+}

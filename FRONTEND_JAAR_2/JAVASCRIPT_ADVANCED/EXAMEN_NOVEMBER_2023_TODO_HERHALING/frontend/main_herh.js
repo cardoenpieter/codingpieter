@@ -15,29 +15,33 @@ function getToDo() {
 //function om items te displayen op de browser
 function displayItems(items) {
   console.log("items", items);
-  todosElem.innerHTML = items.todos
-    .map((todo) => {
-      const isChecked = todo.state ? "in_progress" : "done";
-      const id = todo.id;
-      //li returen zoals de marvel api
-      // const li = document.createElement("li");
-      //   li.innerText = name;
-      //   li.addEventListener("click", () => {
-      //     const id = character.id;
-      //     getSeries(id);
-      //     removeAll();
-      //     chosenCharacter.innerHTML = `You chose ${name}`;
-      //   });
-      //   return charactersElement.appendChild(li);
-      return `
-            <li>
-              <input  class="list-items" type="checkbox" id=${id} name="item" ${isChecked} />
-              <label for=${id}>${todo.name}</label>
-            </li>
-            `;
-    })
-    .join("");
-  clickedItems();
+  return items.todos.map((todo) => {
+    const isChecked = todo.state; //? "in_progress" : "done";
+    const id = todo.id;
+    const li = document.createElement("li");
+    li.innerHTML = `
+    <input type="checkbox" id=${id} name="item" ${isChecked} />
+    <label for=${id}>${todo.name}</label>
+    `;
+    li.classList.remove("list-items-done");
+    li.addEventListener("click", () => {
+      updateItem(id, isChecked);
+      console.log("addeventlistener", id, isChecked);
+      // if (isChecked === "in_progress") {
+      //   const isChecked = "done";
+      //   todosDoneElem.innerHTML = `
+      //   <li>
+      //   <input type="checkbox" id=${id} name="item" ${isChecked}/>
+      //   <label for=${id}>${todo.name}</label>
+      //   <button id=${id}>delete</button>
+      //   </li>
+      //   `;
+      // } else if (isChecked === "done") {
+      //   console.log(isChecked);
+      // }
+    });
+    return todosElem.appendChild(li);
+  });
 }
 
 //fetch POST om data te creeren en naar toe te sturen
@@ -67,21 +71,15 @@ function addItems() {
 }
 
 //fetch POST om data te updaten zoals checkbox afvinken,state: Enum -> "in_progress" or "done"
-function updateItem({ id, state }) {
-  console.log(id, state);
-  return fetch(`http://localhost:3000/todo/update/${id}`, {
+function updateItem(id, state) {
+  console.log("updateitem", id, state);
+  return fetch(`http://localhost:3000/todo/update`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ id, state }),
   });
-}
-
-function clickedItems(id) {
-  const checkboxItem = document.querySelectorAll(".list-items");
-  console.log(checkboxItem);
-  checkboxItem.addEventListener;
 }
 
 function init() {
