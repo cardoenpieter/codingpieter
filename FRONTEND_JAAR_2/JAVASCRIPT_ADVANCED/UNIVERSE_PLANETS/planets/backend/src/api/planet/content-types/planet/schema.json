@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "planets",
+  "info": {
+    "singularName": "planet",
+    "pluralName": "planets",
+    "displayName": "Planet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "radius": {
+      "type": "biginteger"
+    },
+    "mean_temperature": {
+      "type": "biginteger",
+      "required": true
+    },
+    "distance_from_sun": {
+      "type": "biginteger",
+      "required": true
+    },
+    "moon": {
+      "type": "biginteger",
+      "required": true
+    },
+    "rings": {
+      "type": "text",
+      "required": true
+    },
+    "surface": {
+      "type": "text",
+      "required": true
+    },
+    "atmosphere": {
+      "type": "text",
+      "required": true
+    },
+    "Picture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

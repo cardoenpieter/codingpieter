@@ -362,30 +362,41 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiLegoLego extends Schema.CollectionType {
-  collectionName: 'legos';
+export interface ApiPlanetPlanet extends Schema.CollectionType {
+  collectionName: 'planets';
   info: {
-    singularName: 'lego';
-    pluralName: 'legos';
-    displayName: 'Lego';
+    singularName: 'planet';
+    pluralName: 'planets';
+    displayName: 'Planet';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    theme: Attribute.String & Attribute.Required;
-    model: Attribute.String;
-    item: Attribute.BigInteger;
-    price: Attribute.BigInteger;
-    available: Attribute.Date & Attribute.DefaultTo<'2023-12-25'>;
-    picture: Attribute.Media;
+    name: Attribute.String & Attribute.Required;
+    radius: Attribute.BigInteger;
+    mean_temperature: Attribute.BigInteger & Attribute.Required;
+    distance_from_sun: Attribute.BigInteger & Attribute.Required;
+    moon: Attribute.BigInteger & Attribute.Required;
+    rings: Attribute.Text & Attribute.Required;
+    surface: Attribute.Text & Attribute.Required;
+    atmosphere: Attribute.Text & Attribute.Required;
+    Picture: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::lego.lego', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'api::planet.planet',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::lego.lego', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::planet.planet',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -510,14 +521,12 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
+export interface PluginContentReleasesRelease extends Schema.CollectionType {
+  collectionName: 'strapi_releases';
   info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
+    singularName: 'release';
+    pluralName: 'releases';
+    displayName: 'Release';
   };
   options: {
     draftAndPublish: false;
@@ -531,22 +540,71 @@ export interface PluginI18NLocale extends Schema.CollectionType {
     };
   };
   attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
+    name: Attribute.String & Attribute.Required;
+    releasedAt: Attribute.DateTime;
+    actions: Attribute.Relation<
+      'plugin::content-releases.release',
+      'oneToMany',
+      'plugin::content-releases.release-action'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'plugin::content-releases.release',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'plugin::content-releases.release',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginContentReleasesReleaseAction
+  extends Schema.CollectionType {
+  collectionName: 'strapi_release_actions';
+  info: {
+    singularName: 'release-action';
+    pluralName: 'release-actions';
+    displayName: 'Release Action';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    type: Attribute.Enumeration<['publish', 'unpublish']> & Attribute.Required;
+    entry: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'morphToOne'
+    >;
+    contentType: Attribute.String & Attribute.Required;
+    release: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'manyToOne',
+      'plugin::content-releases.release'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::content-releases.release-action',
       'oneToOne',
       'admin::user'
     > &
@@ -705,6 +763,50 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -715,13 +817,15 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::lego.lego': ApiLegoLego;
+      'api::planet.planet': ApiPlanetPlanet;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
-      'plugin::i18n.locale': PluginI18NLocale;
+      'plugin::content-releases.release': PluginContentReleasesRelease;
+      'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::i18n.locale': PluginI18NLocale;
     }
   }
 }
