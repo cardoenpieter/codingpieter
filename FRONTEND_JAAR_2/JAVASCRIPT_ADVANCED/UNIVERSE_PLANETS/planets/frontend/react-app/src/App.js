@@ -1,4 +1,5 @@
 import Planets from "./Planets.js";
+import "./Reset.css";
 import "./App.css";
 
 function App() {

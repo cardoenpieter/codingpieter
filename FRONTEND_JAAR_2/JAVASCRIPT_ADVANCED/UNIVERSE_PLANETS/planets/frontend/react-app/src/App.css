@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +36,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+*/
+
+.item-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.card {
+  text-align: center;
+  padding: 10px;
+  width: 350px;
+  border-radius: 25px;
+  padding: 1em;
+  background-color: black;
+  color:antiquewhite;
+  margin: 1.5rem;
+}
+
+h1 {
+  margin: 3rem;
+}
+
+img {
+  height: auto;
+  width: auto;
+  align-items: center;
+}
+
+h3 {
+  font-size: 55px;
+  margin: 2rem;
+}
+
+p {
+  margin: 2px;
 }

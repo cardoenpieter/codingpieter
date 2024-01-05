@@ -1,4 +1,11 @@
+import { useState, useEffect } from "react";
+
 const Planets = () => {
+  const [planets, setPlanets] = useState([]);
+  useEffect(() => {
+    getPlanets();
+  }, []);
+
   const getPlanets = () => {
     const base_url = `http://localHost:1337/api/planets?populate=*`;
     fetch(base_url, {
@@ -10,13 +17,35 @@ const Planets = () => {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        setPlanets(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
-  getPlanets();
 
   return (
     <div>
-      <p>this is a test</p>
+      <h1>Planets in our Solar System</h1>
+      <div className="item-container">
+        {planets.map((planet) => (
+          <div className="card" key={planet.id}>
+            <img
+              src={
+                "http://localHost:1337" +
+                planet.attributes.Picture.data[0].attributes.url
+              }
+              alt=""
+            />
+            <h3>{planet.attributes.name}</h3>
+            <p>Radius: {planet.attributes.radius} km</p>
+            <p>
+              Distance from our Sun: {planet.attributes.distance_from_sun} km
+            </p>
+            <p>Mean temperature: {planet.attributes.mean_temperature} °C</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
