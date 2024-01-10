@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
+import Image from "react-image-enlarger";
 
 const Planets = () => {
   const [planets, setPlanets] = useState([]);
   useEffect(() => {
-    getPlanets();
-  }, []);
-
-  const getPlanets = () => {
     const base_url = `http://localHost:1337/api/planets?populate=*`;
     fetch(base_url, {
       headers: {
@@ -22,28 +19,14 @@ const Planets = () => {
       .catch((err) => {
         console.log(err);
       });
-  };
+  }, []);
 
   return (
     <div>
       <h1>Planets in our Solar System</h1>
       <div className="item-container">
         {planets.map((planet) => (
-          <div className="card" key={planet.id}>
-            <img
-              src={
-                "http://localHost:1337" +
-                planet.attributes.Picture.data[0].attributes.url
-              }
-              alt=""
-            />
-            <h3>{planet.attributes.name}</h3>
-            <p>Radius: {planet.attributes.radius} km</p>
-            <p>
-              Distance from our Sun: {planet.attributes.distance_from_sun} km
-            </p>
-            <p>Mean temperature: {planet.attributes.mean_temperature} °C</p>
-          </div>
+          <Planet planet={planet} key={planet.id} />
         ))}
       </div>
     </div>
@@ -51,3 +34,41 @@ const Planets = () => {
 };
 
 export default Planets;
+
+//deze als aparte component aanmaken in de src map en dan importeren
+const Planet = ({ planet }) => {
+  const [zoomed, setZoomed] = useState(false);
+
+  return (
+    <div className="card" key={planet.id}>
+      <div>
+        <Image
+          src={
+            "http://localHost:1337" +
+            planet.attributes.Picture.data[0].attributes.url
+          }
+          alt=""
+          style={{ width: "200px", height: "auto" }}
+          zoomed={zoomed}
+          onClick={() => setZoomed(true)}
+          onRequestClose={() => setZoomed(false)}
+        />
+      </div>
+
+      {/* <div>
+        <img
+          src={
+            "http://localHost:1337" +
+            planet.attributes.Picture.data[0].attributes.url
+          }
+          alt=""
+        />
+      </div> */}
+
+      <h3>{planet.attributes.name}</h3>
+      <p>Radius: {planet.attributes.radius} km</p>
+      <p>Distance from our Sun: {planet.attributes.distance_from_sun} km</p>
+      <p>Mean temperature: {planet.attributes.mean_temperature} °C</p>
+    </div>
+  );
+};

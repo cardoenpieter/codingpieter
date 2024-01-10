@@ -24,7 +24,7 @@ function template({ attributes }) {
         <p class='description'>Item ${attributes.item}</p>
         <p class='price'>${euro}</p>
         <div class='btn'>Add to cart</div>
-        <div class='quickview'>Quickview</div>
+        <div class='delete'>Delete</div>
     </div>
     `;
 }
