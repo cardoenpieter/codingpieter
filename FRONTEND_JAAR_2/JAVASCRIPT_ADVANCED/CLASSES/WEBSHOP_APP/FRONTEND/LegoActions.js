@@ -23,12 +23,13 @@ export default class LegoActions {
     const container = document.getElementById(`lego-${this.id}`);
     const model = container.querySelector(".title");
     const theme = container.querySelector(".theme");
-    const item = container.querySelector(".item");
-    //console.log(model.innerText);
+    const item = container.querySelector(".description");
+    const price = container.querySelector(".price");
+
     LegoClient.update(this.id, {
       model: model.innerText,
       theme: theme.innerText,
-      item: item, //zoeken naar enkel nummer wijzigen en geen tekst
+      item: item.innerText,
     });
   };
 

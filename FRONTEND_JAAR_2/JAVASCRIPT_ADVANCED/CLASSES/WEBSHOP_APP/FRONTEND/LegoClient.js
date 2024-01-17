@@ -64,12 +64,3 @@ class LegoClient {
 }
 
 export default new LegoClient();
-
-// "model": "Lamborghini Sián FKP 37",
-//         "item": "42115",
-//         "price": "45000",
-//         "available": "2023-12-25",
-//         "createdAt": "2023-12-11T19:07:56.253Z",
-//         "updatedAt": "2023-12-11T20:09:56.807Z",
-//         "publishedAt": "2023-12-11T19:50:31.623Z",
-//         "theme": "Technic"
