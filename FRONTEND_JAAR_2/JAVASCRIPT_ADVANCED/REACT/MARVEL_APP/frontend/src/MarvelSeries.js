@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-const MarvelSeries = (id) => {
+const MarvelSeries = () => {
   const [series, setSeries] = useState([]);
+  const { id } = useParams();
   useEffect(() => {
     fetch(
       `https://gateway.marvel.com:443/v1/public/characters/${id}/series?apikey=dec9cdce90864edae689b29660018520`,
@@ -15,14 +16,33 @@ const MarvelSeries = (id) => {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.data.results);
+        console.log("dataSerie", res.data.results);
         setSeries(res.data.results);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-  return <div>"test"</div>;
+  }, [id]);
+  return (
+    <>
+      <div className="item-container grid grid-col4">
+        {series.map((serie) => (
+          <li key={serie.id}>
+            <div>{serie.title}</div>
+            <img
+              src={
+                serie.thumbnail.path +
+                "/standard_fantastic" +
+                "." +
+                serie.thumbnail.extension
+              }
+              alt=""
+            />
+          </li>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default MarvelSeries;

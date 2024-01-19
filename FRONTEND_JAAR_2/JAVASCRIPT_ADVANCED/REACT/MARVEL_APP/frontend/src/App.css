@@ -6,16 +6,16 @@
   padding: 0.8rem;
   margin: 1rem;
   list-style-type: none; 
-  background-color:#fca873; 
+  background-color:#464457;
   border-radius: 0.5rem;
   transition: all 150ms ease-in-out;
 }
 
 .item-container li button{
   cursor: pointer;
-  border: #f07930;
+  border: #afafaf;
   border-radius: 0.2rem;
-  background-color:#f07930;
+  background-color:#afafaf;
 }
 
 .grid

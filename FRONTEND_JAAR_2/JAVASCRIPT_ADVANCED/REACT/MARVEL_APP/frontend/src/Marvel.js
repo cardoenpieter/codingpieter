@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import MarvelSeries from "./MarvelSeries.js";
+import { useNavigate } from "react-router-dom";
 
 const Marvel = () => {
   const [characters, setCharacter] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(
       `https://gateway.marvel.com:443/v1/public/characters?apikey=dec9cdce90864edae689b29660018520`,
@@ -27,7 +28,19 @@ const Marvel = () => {
     <div className="item-container grid grid-col4">
       {characters.map((character) => (
         <li key={character.id}>
-          <button>{character.name}</button>
+          <button onClick={() => navigate(`/series/${character.id}`)}>
+            {character.name}
+          </button>
+
+          <img
+            src={
+              character.thumbnail.path +
+              "/standard_fantastic" +
+              "." +
+              character.thumbnail.extension
+            }
+            alt=""
+          />
         </li>
       ))}
     </div>
