@@ -24,11 +24,12 @@ const MarvelSeries = () => {
       });
   }, [id]);
   return (
-    <>
-      <div className="item-container grid grid-col4">
+    <div className="container-general">
+      <h1>SERIES</h1>
+      <div className="item-container grid grid-col5">
         {series.map((serie) => (
           <li key={serie.id}>
-            <div>{serie.title}</div>
+            <p>{serie.title}</p>
             <img
               src={
                 serie.thumbnail.path +
@@ -41,7 +42,7 @@ const MarvelSeries = () => {
           </li>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

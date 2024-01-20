@@ -25,24 +25,28 @@ const Marvel = () => {
   }, []);
 
   return (
-    <div className="item-container grid grid-col4">
-      {characters.map((character) => (
-        <li key={character.id}>
+    <div className="container-general">
+      <h1>CHARACTERS</h1>
+      <div className="item-container grid grid-col5">
+        {characters.map((character) => (
           <button onClick={() => navigate(`/series/${character.id}`)}>
-            {character.name}
+            <li key={character.id}>
+              <p>{character.name}</p>
+              <div className="image-container">
+                <img
+                  src={
+                    character.thumbnail.path +
+                    "/standard_fantastic" +
+                    "." +
+                    character.thumbnail.extension
+                  }
+                  alt=""
+                />
+              </div>
+            </li>
           </button>
-
-          <img
-            src={
-              character.thumbnail.path +
-              "/standard_fantastic" +
-              "." +
-              character.thumbnail.extension
-            }
-            alt=""
-          />
-        </li>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
