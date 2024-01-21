@@ -24,14 +24,39 @@ export default class LegoActions {
     const model = container.querySelector(".title");
     const theme = container.querySelector(".theme");
     const item = container.querySelector(".description");
-    const price = container.querySelector(".price");
+    const priceFormat = container.querySelector(".price");
 
     LegoClient.update(this.id, {
       model: model.innerText,
       theme: theme.innerText,
       item: item.innerText,
+      price: priceFormat.innerText,
+      //bij refresh wordt er een NaN gerenderd,
+      //dit wss doordat de database een number verwacht en
+      //geen euroteken + number
     });
   };
+
+  onIncrement = () => {
+    this.price = parseInt(this.price) + 5000;
+    this.updatePrice();
+  };
+
+  onDecrement = () => {
+    this.price = parseInt(this.price) - 5000;
+    this.updatePrice();
+  };
+
+  updatePrice() {
+    const priceElement = document
+      .getElementById(`lego-${this.id}`)
+      .querySelector(".price");
+    const euro = Intl.NumberFormat("nl-BE", {
+      style: "currency",
+      currency: "EUR",
+    }).format(this.price / 100);
+    priceElement.textContent = euro;
+  }
 
   template() {
     const euro = Intl.NumberFormat("nl-BE", {
@@ -45,6 +70,12 @@ export default class LegoActions {
         <h2 class="title" contenteditable>${this.model}</h2>
         <p class="description" contenteditable>Item ${this.item}</p>
         <p class="price">${euro}</p>
+        <button @click=${this.onIncrement} type="button" data-id=${this.id}>
+          +
+        </button>
+        <button @click=${this.onDecrement} type="button" data-id=${this.id}>
+          -
+        </button>
         <div class="btn">Add to cart</div>
         <button
           class="delete"

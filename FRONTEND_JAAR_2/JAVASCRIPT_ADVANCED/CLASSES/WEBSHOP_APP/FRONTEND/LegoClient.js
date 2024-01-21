@@ -23,8 +23,11 @@ class LegoClient {
         data.map((lego) => {
           const formattedLego = {
             id: lego.id,
-            ...lego.attributes,
+            ...lego.attributes, //https://www.w3schools.com/howto/howto_js_spread_operator.asp
+            // ... kopieert de rest vd attributes en overschrijft waar nodig
           };
+          console.log("data", data);
+          console.log("formatted", formattedLego);
           const picture = `${this.apiUrl}${formattedLego.picture.data[0].attributes.url}`;
           return {
             id: formattedLego.id,

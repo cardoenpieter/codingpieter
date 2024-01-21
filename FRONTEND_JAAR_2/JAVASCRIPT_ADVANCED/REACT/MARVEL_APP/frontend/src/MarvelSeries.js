@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+//import Marvel from "./Marvel.js";
 
-const MarvelSeries = () => {
+const MarvelSeries = ({ character }) => {
+  //data propping van Marvel?
   const [series, setSeries] = useState([]);
   const { id } = useParams();
+  console.log(character);
   useEffect(() => {
     fetch(
       `https://gateway.marvel.com:443/v1/public/characters/${id}/series?apikey=dec9cdce90864edae689b29660018520`,
@@ -26,6 +29,7 @@ const MarvelSeries = () => {
   return (
     <div className="container-general">
       <h1>SERIES</h1>
+
       <div className="item-container grid grid-col5">
         {series.map((serie) => (
           <li key={serie.id}>

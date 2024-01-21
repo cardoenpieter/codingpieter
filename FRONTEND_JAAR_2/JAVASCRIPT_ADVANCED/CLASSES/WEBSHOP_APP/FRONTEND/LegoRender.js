@@ -19,7 +19,7 @@ export default class LegoRender {
   static display() {
     LegoClient.get().then((legoObjects) => {
       //console toont alle data die aangepast is naar id en attributes op 1 lijn
-      console.log(legoObjects);
+      console.log("legoobjects", legoObjects);
       const legos = new LegoRender(legoObjects);
       legos.renderLegos();
     });
