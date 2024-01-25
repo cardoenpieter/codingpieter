@@ -9,9 +9,6 @@ const Marvel = () => {
       `https://gateway.marvel.com:443/v1/public/characters?apikey=dec9cdce90864edae689b29660018520`,
       {
         method: "GET",
-        params: {
-          apikey: "8c4289691ab6031cb2da260892a611a11c932e35",
-        },
       }
     )
       .then((res) => res.json())
@@ -29,8 +26,11 @@ const Marvel = () => {
       <h1>CHARACTERS</h1>
       <div className="item-container grid grid-col5">
         {characters.map((character) => (
-          <button onClick={() => navigate(`/series/${character.id}`)}>
-            <li key={character.id}>
+          <button
+            key={character.id} //key altijd op bovenste element in een .map
+            onClick={() => navigate(`/series/${character.id}`)}
+          >
+            <li>
               <p>{character.name}</p>
               <div className="image-container">
                 <img
@@ -39,7 +39,7 @@ const Marvel = () => {
                     "/standard_fantastic" +
                     "." +
                     character.thumbnail.extension
-                  }
+                  } //template litterals backticks
                   alt=""
                 />
               </div>

@@ -14,7 +14,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-  );
+  ); //:id dynamic routing
 }
 
 export default App;

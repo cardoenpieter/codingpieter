@@ -2,19 +2,15 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 //import Marvel from "./Marvel.js";
 
-const MarvelSeries = ({ character }) => {
-  //data propping van Marvel?
+const MarvelSeries = () => {
   const [series, setSeries] = useState([]);
   const { id } = useParams();
-  console.log(character);
+  //console.log(id);
   useEffect(() => {
     fetch(
       `https://gateway.marvel.com:443/v1/public/characters/${id}/series?apikey=dec9cdce90864edae689b29660018520`,
       {
         method: "GET",
-        params: {
-          apikey: "8c4289691ab6031cb2da260892a611a11c932e35",
-        },
       }
     )
       .then((res) => res.json())
@@ -25,7 +21,7 @@ const MarvelSeries = ({ character }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [id]); //dependency,bij nieuwe id wordt er gererenderd
   return (
     <div className="container-general">
       <h1>SERIES</h1>
@@ -43,7 +39,7 @@ const MarvelSeries = ({ character }) => {
               }
               alt=""
             />
-          </li>
+          </li> //in een aparte Card.js duwen
         ))}
       </div>
     </div>
