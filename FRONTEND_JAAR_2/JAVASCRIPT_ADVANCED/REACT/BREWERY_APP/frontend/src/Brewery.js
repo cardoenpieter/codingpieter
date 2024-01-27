@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 const Brewery = () => {
   const [breweries, setBreweries] = useState([]);
   const [input, setInput] = useState("");
-  const [select, setSelect] = useState("");
+  const [page, setPage] = useState("10");
+
   const navigate = useNavigate();
   useEffect(() => {
     fetch(`https://api.openbrewerydb.org/v1/breweries?per_page=3`, {
@@ -20,12 +21,15 @@ const Brewery = () => {
 
   const onChange = (event) => {
     setInput(event.target.value);
-    console.log(event.target.value);
+    //console.log(event.target.value);
   };
 
+  const onPage = (event) => {
+    setPage(event.target.value);
+  };
   const handleClick = () => {
     fetch(
-      `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&per_page=${select}`,
+      `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&per_page=${page}`,
       {
         method: "GET",
       }
@@ -38,24 +42,17 @@ const Brewery = () => {
       .catch((err) => console.log(err));
   };
 
-  const onSelected = () => {
-    console.log(setSelect);
-  };
-
   return (
     <div className="container-general">
       <h1>Breweries around the States</h1>
       <div className="container-inputandselectfield">
         <label>
-          Select:
-          <select
-            name="selectedBrewery"
-            defaultValue="10"
-            onSelect={onSelected}
-          >
+          Results:
+          <select name="selectedBrewery" defaultValue={page} onChange={onPage}>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
+            <option value="30">30</option>
           </select>
         </label>
         <input
