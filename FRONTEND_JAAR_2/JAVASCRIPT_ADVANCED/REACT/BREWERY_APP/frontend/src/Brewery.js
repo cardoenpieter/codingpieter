@@ -27,6 +27,7 @@ const Brewery = () => {
   const onPage = (event) => {
     setPage(event.target.value);
   };
+
   const handleClick = () => {
     fetch(
       `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&per_page=${page}`,

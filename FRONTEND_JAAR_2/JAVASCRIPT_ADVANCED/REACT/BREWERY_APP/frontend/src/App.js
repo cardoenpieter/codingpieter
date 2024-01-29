@@ -17,4 +17,3 @@ function App() {
 }
 
 export default App;
-//https://api.openbrewerydb.org/v1/breweries?by_state=new_york&per_page=3  <div className="App"></div>;
