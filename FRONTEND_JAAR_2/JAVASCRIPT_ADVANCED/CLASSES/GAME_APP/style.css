@@ -1,0 +1,25 @@
+#player,
+#angler1,
+#angler2,
+#lucky,
+#hivewhale,
+#drone,
+#projectile,
+#gears,
+#layer1,
+#layer2,
+#layer3,
+#layer4 {
+  display: none;
+}
+
+#canvas {
+  border: 5px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #4d79bc;
+  max-width: 100%;
+  max-height: 100%;
+}

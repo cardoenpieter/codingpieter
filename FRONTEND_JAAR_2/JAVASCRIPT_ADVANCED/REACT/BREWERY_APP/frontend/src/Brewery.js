@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Pagination from "./Pagination.js";
 
 const Brewery = () => {
   const [breweries, setBreweries] = useState([]);
   const [input, setInput] = useState("");
-  const [page, setPage] = useState("10");
+  const [limit, setLimit] = useState("10");
 
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`https://api.openbrewerydb.org/v1/breweries?per_page=3`, {
+    fetch(`https://api.openbrewerydb.org/v1/breweries?per_page=5`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -25,12 +26,12 @@ const Brewery = () => {
   };
 
   const onPage = (event) => {
-    setPage(event.target.value);
+    setLimit(event.target.value);
   };
 
   const handleClick = () => {
     fetch(
-      `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&per_page=${page}`,
+      `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&per_page=${limit}`,
       {
         method: "GET",
       }
@@ -49,7 +50,7 @@ const Brewery = () => {
       <div className="container-inputandselectfield">
         <label>
           Results:
-          <select name="selectedBrewery" defaultValue={page} onChange={onPage}>
+          <select name="selectedBrewery" defaultValue={limit} onChange={onPage}>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
@@ -72,13 +73,13 @@ const Brewery = () => {
             onClick={() => navigate(`/details/${brewery.id}`)}
           >
             <li>
-              <p>{brewery.id}</p>
               <p>{brewery.name}</p>
               <p>{brewery.state_province}</p>
             </li>
           </button>
         ))}
       </div>
+      <Pagination input={input} limit={limit} setBreweries={setBreweries} />
     </div>
   );
 };
