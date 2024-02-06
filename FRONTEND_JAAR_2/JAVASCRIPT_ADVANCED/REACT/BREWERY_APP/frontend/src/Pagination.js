@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 
 const Pagination = ({ input, limit, setBreweries }) => {
   const [page, setPage] = useState(1);
+  console.log("page", page);
 
   useEffect(() => {
-    const offset = limit * (page - 1);
+    //const offset = limit * (page - 1);
+    //console.log("offset", offset);
     fetch(
-      `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&page=${offset}&per_page=${limit}`,
+      `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&page=${page}&per_page=${limit}`,
       {
         method: "GET",
       }
@@ -19,7 +21,7 @@ const Pagination = ({ input, limit, setBreweries }) => {
       .catch((err) => console.log(err));
   }, [page, input, limit, setBreweries]);
   return (
-    <div>
+    <div className="pagination">
       <button
         onClick={() => {
           setPage(page - 1);
@@ -38,4 +40,3 @@ const Pagination = ({ input, limit, setBreweries }) => {
   );
 };
 export default Pagination;
-//by_state=${input}&

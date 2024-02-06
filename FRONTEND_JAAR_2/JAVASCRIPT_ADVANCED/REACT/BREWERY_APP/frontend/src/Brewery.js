@@ -29,7 +29,8 @@ const Brewery = () => {
     setLimit(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     fetch(
       `https://api.openbrewerydb.org/v1/breweries?by_state=${input}&per_page=${limit}`,
       {

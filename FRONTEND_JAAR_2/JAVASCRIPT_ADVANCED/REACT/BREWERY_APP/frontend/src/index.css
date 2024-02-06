@@ -11,4 +11,5 @@ body {
 
 h1 {
   color: rgb(255, 145, 0);
+  text-shadow: 2px 2px 4px #000000;
 }
