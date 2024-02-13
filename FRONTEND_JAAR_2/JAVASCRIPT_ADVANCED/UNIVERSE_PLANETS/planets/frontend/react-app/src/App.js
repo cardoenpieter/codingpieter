@@ -1,12 +1,20 @@
 import Planets from "./Planets.js";
+import Details from "./Details.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./Reset.css";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Planets />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Planets />} />
+          <Route path="/details/:id" element={<Details />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
