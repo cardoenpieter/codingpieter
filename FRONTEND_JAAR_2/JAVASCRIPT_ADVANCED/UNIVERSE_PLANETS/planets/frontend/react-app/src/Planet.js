@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Planet = ({ planet }) => {
   const [zoomed, setZoomed] = useState(false);
   const navigate = useNavigate();
-
+  const AU = 6.68458712 * Math.pow(10, -9);
   return (
     <div className="card" key={planet.id}>
       <div>
@@ -24,7 +24,10 @@ const Planet = ({ planet }) => {
 
       <h3>{planet.attributes.name}</h3>
       <p>Radius: {planet.attributes.radius} km</p>
-      <p>Distance from our Sun: {planet.attributes.distance_from_sun} km</p>
+      <p>
+        Distance from our Sun: {planet.attributes.distance_from_sun} km (
+        {(AU * planet.attributes.distance_from_sun).toFixed(2)} AU)
+      </p>
       <p>Mean temperature: {planet.attributes.mean_temperature} °C</p>
       <button onClick={() => navigate(`/details/${planet.id}`)}>
         Read more...

@@ -29,29 +29,34 @@ const Details = () => {
   }, [id]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   return (
     <>
-      <div className="details-name">
-        <p>{planetsDetails.attributes?.name}</p>
+      <p className="details-title">
+        Some more details about this fantastic object
+      </p>
+      <div className="container-details grid grid-col2">
+        <div className="container-image">
+          <img
+            src={
+              "http://localHost:1337" +
+              planetsDetails.attributes?.Picture?.data[0]?.attributes?.url
+            }
+            alt=""
+          ></img>
+        </div>
+        <div className="details-data">
+          <p className="details-name">{planetsDetails.attributes?.name}</p>
+          <div className="details-moreinfo">
+            <p>Atmosphere: {planetsDetails.attributes?.atmosphere}</p>
+            <p>Surface: {planetsDetails.attributes?.surface}</p>
+            <p>Moon(s): {planetsDetails.attributes?.moon}</p>
+            <p>Rings: {planetsDetails.attributes?.rings}</p>
+          </div>
+        </div>
       </div>
-
-      <div className="details-img">
-        <img
-          src={
-            "http://localHost:1337" +
-            planetsDetails.attributes?.Picture?.data[0]?.attributes?.url
-          }
-          alt=""
-        ></img>
-      </div>
-
-      <p>Atmosphere: {planetsDetails.attributes?.atmosphere}</p>
-      <p>Surface: {planetsDetails.attributes?.surface}</p>
-      <p>Moon(s): {planetsDetails.attributes?.moon}</p>
-      <p>Rings: {planetsDetails.attributes?.rings}</p>
     </>
   );
 };
