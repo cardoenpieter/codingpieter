@@ -7,9 +7,13 @@ export default class Player {
     this.height = 190; //is gebaseerd op de .png file (sprite)
     this.x = 20;
     this.y = 100;
+    this.frameX = 0;
+    this.frameY = 0;
+    this.maxFrame = 37;
     this.speedY = 0;
     this.maxSpeed = 3;
     this.projectiles = []; //speler wil weten op elk moment hoeveel projectiles we hebben
+    this.image = document.getElementById("player");
   }
   update() {
     if (this.game.keys.includes("ArrowUp"))
@@ -26,10 +30,26 @@ export default class Player {
   }
   draw() {
     this.game.ctx.fillStyle = "black";
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height); //vierkant
+    this.game.ctx.drawImage(
+      this.image,
+      this.frameX * this.width,
+      this.frameY * this.height,
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
+
     this.projectiles.forEach((projectile) => {
       projectile.draw();
     });
+    if (this.frameX < this.maxFrame) {
+      this.frameX++;
+    } else {
+      this.frameX = 0;
+    }
   }
 
   shootTop() {
