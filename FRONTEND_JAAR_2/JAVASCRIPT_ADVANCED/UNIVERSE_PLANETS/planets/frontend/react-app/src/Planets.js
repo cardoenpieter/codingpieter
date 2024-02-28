@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Planet from "./Planet.js";
+import { ThemeContext } from "./App.js";
 
 const Planets = () => {
   const [planets, setPlanets] = useState([]);
+  const themeLightDark = useContext(ThemeContext);
   useEffect(() => {
     const base_url = `http://localHost:1337/api/planets?populate=*`;
     fetch(base_url, {
@@ -22,7 +24,7 @@ const Planets = () => {
   }, []);
 
   return (
-    <div>
+    <div className={themeLightDark}>
       <h1>Planets in our Solar System</h1>
       <div className="item-container">
         {planets.map((planet) => (

@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { ThemeContext } from "./App.js";
 
 const Details = () => {
   const [planetsDetails, setPlanetsDetails] = useState([]);
@@ -7,6 +8,9 @@ const Details = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   console.log("id", id);
+
+  const themeLightDark = useContext(ThemeContext);
+
   useEffect(() => {
     setLoading(true);
     const base_url = `http://localHost:1337/api/planets/${id}?populate=*`;
@@ -33,7 +37,7 @@ const Details = () => {
   }
 
   return (
-    <>
+    <div className={themeLightDark}>
       <p className="details-title">
         Some more details about this fantastic object
       </p>
@@ -57,7 +61,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Details;
