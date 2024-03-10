@@ -1,15 +1,22 @@
+import CreateAccount from "../components/CreateAccount";
+
 const Login = () => {
   return (
-    <div>
-      <label>
-        <input name="usernameInput" placeholder="Username" />
+    <div className="container-login">
+      <label className="username-login">
+        <p>Username</p>
+        <input name="usernameInput" />
       </label>
 
-      <label>
-        <input name="passwordInput" placeholder="Password" />
+      <label className="password-login">
+        <p>Password</p>
+        <input name="passwordInput" />
       </label>
+      <div className="button-login">
+        <button type="submit">Log In</button>
+      </div>
 
-      <button type="submit">LOGIN</button>
+      <CreateAccount />
     </div>
   );
 };

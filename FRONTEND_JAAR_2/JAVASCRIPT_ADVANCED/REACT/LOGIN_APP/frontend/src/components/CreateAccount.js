@@ -5,7 +5,10 @@ const CreateAccount = () => {
   return (
     <div>
       <p>No account?</p>
-      <button className="button-register" onClick={() => navigate(`/signup`)}>
+      <button
+        className="button-createaccount"
+        onClick={() => navigate(`/signup`)}
+      >
         <span>Register here</span>
       </button>
     </div>

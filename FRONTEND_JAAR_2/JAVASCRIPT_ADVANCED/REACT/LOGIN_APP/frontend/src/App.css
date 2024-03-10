@@ -1,5 +1,84 @@
-.App {
-  text-align: center;
+.button-login-home {
+  margin: 1.5rem;
+  margin-right: 5rem;
+  padding: 10px 20px;
+  border: none;
+  background-color:#7185AB;
+  font-size: 16px;
+  transition: 0.3s ease;
+  color: antiquewhite;
+  cursor: pointer;
+  border-radius: 15px;
+  float: right;
 }
 
+.button-login-home:hover {
+  background-color:#033da9;
+  color: antiquewhite;
+}
+
+
+/* .grid-col5 {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: grid;
+} */
+
+.container-login,
+.container-signup {
+  text-align: center;
+  display: block;
+  padding: 0.8rem;
+  margin: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #7185AB;
+  border-radius: 15px;
+}
+
+.container-login label p,
+.container-signup label p {
+  margin: 0.5rem;
+  font-size: 12px;
+  line-height: 0.4;
+}
+
+.username-login input,
+.password-login input,
+.firstname input,
+.lastname input,
+.email input,
+.password input
+{
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid #7185AB;
+
+}
+
+.button-login button,
+.button-createaccount,
+.container-signup button {
+  margin: 0.4rem;
+  padding: 10px 20px;
+  border: none;
+  background-color:#7185AB;
+  font-size: 16px;
+  transition: 0.3s ease;
+  color: antiquewhite;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button-login button:hover,
+.button-createaccount:hover,
+.container-signup button:hover {
+  background-color:#033da9;
+  color: antiquewhite;
+}
+
+.password input[type='password'] {
+  font-family: Verdana;
+  letter-spacing: 0.125em;
+}
 
