@@ -4,7 +4,7 @@ const CreateAccount = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <p>No account?</p>
+      <p>Not registered yet?</p>
       <button
         className="button-createaccount"
         onClick={() => navigate(`/signup`)}
