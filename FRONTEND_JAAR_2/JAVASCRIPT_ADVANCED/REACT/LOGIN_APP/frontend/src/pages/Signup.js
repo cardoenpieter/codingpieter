@@ -1,10 +1,8 @@
-import { useState, createContext, useContext } from "react";
-
-const UserContext = createContext("");
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const decideUserRole = useContext(UserContext);
-  console.log(decideUserRole);
+  const navigate = useNavigate();
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -14,6 +12,11 @@ const Signup = () => {
 
   const handleClickSignUp = (e) => {
     e.preventDefault();
+    //warning wanneer er geen role is aangeklikt
+    if (!input.role) {
+      alert("Please select a role (Viewer or Admin)");
+      return;
+    }
     const base_url = `http://localhost:3000/users`;
     fetch(base_url, {
       method: "POST",
@@ -25,48 +28,44 @@ const Signup = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("resinput", res);
+        console.log("setinput", res);
         setInput(res);
-        //clear inputfields
-        setInput({
-          name: "",
-          email: "",
-          password: "",
-        });
+        navigate("/login");
       })
       .catch((err) => console.log(err));
   };
 
   function handleChange(e, key) {
+    console.log(key);
     setInput({ ...input, [key]: e.target.value });
   }
+
   //object aan het werken: altijd nadenken over datastructuur, dus altijd in objecten blijven werken en geen strings induwen
   //spread: maakt nieuw object en alle key value pairs in object steken, kopie nemen van object, waardes aanpassen en die opnieuw in setinput verwerken
   //key dynamisch maken en deze targetten met de waarde die je in de inputlabel wilt schrijven
 
-  //provider rond de app.js plaatsen
   return (
     <div className="container-signup">
-      <UserContext.Provider value={decideUserRole}>
-        <label>
-          Admin:
-          <input
-            type="checkbox"
-            name="checkboxAdmin"
-            checked={input.role === "admin"}
-            onChange={(e) => handleChange(e, "role")}
-          />
-        </label>
+      <div>
         <label>
           Viewer:
           <input
-            type="checkbox"
-            name="checkboxNoAdmin"
-            checked={input.role === "viewer"}
+            type="radio"
+            name="role"
+            value="viewer"
             onChange={(e) => handleChange(e, "role")}
           />
         </label>
-      </UserContext.Provider>
+        <label>
+          Admin:
+          <input
+            type="radio"
+            name="role"
+            value="admin"
+            onChange={(e) => handleChange(e, "role")}
+          />
+        </label>
+      </div>
 
       <label className="firstname">
         <p>Firstname and Lastname</p>
